@@ -67,7 +67,7 @@ function GetContPage($content)
 
 	//设定分页标签
 	$contstr  = '';
-	$nextpage = '<hr style="page-break-after:always;" class="ke-pagebreak" />';
+	$nextpage = '_ueditor_page_break_tag_';
 
 
 	if(strpos($content, $nextpage))
@@ -683,4 +683,5 @@ function GetFragment($id=0,$t=0)
 		return $r['f'];
 	}
 }
+
 ?>

@@ -9,8 +9,9 @@
 <script type="text/javascript" src="templates/js/checkf.func.js"></script>
 <script type="text/javascript" src="templates/js/getuploadify.js"></script>
 <script type="text/javascript" src="plugin/calendar/calendar.js"></script>
-<script type="text/javascript" src="editor/kindeditor-min.js"></script>
-<script type="text/javascript" src="editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="editor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
 <div class="formHeader"> <span class="title">添加碎片数据</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
@@ -34,20 +35,14 @@
 		</tr>
 		<tr>
 			<td height="298" align="right">详细内容：</td>
-			<td><textarea name="content" id="content" class="kindeditor"></textarea>
-				<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="content"]', {
-						allowFileManager : true,
-						width:'667px',
-						height:'280px',
-						extraFileUploadParams : {
-							sessionid :  '<?php echo session_id(); ?>'
-						}
+			<td>
+            	<script id="content"  name="content" type="text/plain" style="width:667px; height:218px;"></script>
+                <script>
+					var ue = UE.getEditor('content',{
+						autoHeightEnabled: false
 					});
-				});
-				</script></td>
+                </script>
+            </td>
 		</tr>
 		<tr class="nb">
 			<td height="40" align="right">更新时间：</td>

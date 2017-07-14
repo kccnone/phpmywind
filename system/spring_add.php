@@ -12,8 +12,9 @@
 <script type="text/javascript" src="templates/js/getinfosrc.js"></script>
 <script type="text/javascript" src="plugin/colorpicker/colorpicker.js"></script>
 <script type="text/javascript" src="plugin/calendar/calendar.js"></script>
-<script type="text/javascript" src="editor/kindeditor-min.js"></script>
-<script type="text/javascript" src="editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="editor/lang/zh-cn/zh-cn.js"></script>
 <body>
 <div class="formHeader"> <span class="title">添加列表信息</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
 <form name="form" id="form" method="post" action="spring_save.php" onsubmit="return cfm_infolm();">
@@ -118,36 +119,14 @@
 		</tr>
 		<tr>
 			<td height="340" align="right">详细内容：</td>
-			<td><textarea name="content" id="content" class="kindeditor"></textarea>
-				<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="content"]', {
-						allowFileManager : true,
-						width:'667px',
-						height:'280px',
-						extraFileUploadParams : {
-							sessionid :  '<?php echo session_id(); ?>'
-						}
+			<td>
+            	<script id="content"  name="content" type="text/plain" style="width:667px; height:218px;"></script>
+                <script>
+					var ue = UE.getEditor('content',{
+						autoHeightEnabled: false
 					});
-				});
-				</script>
-				<div class="editToolbar">
-					<input type="checkbox" name="remote" id="remote" value="true" />
-					下载远程图片和资源
-					&nbsp;
-					<input type="checkbox" name="autothumb" id="autothumb" value="true" />
-					提取第一个图片为缩略图
-					&nbsp;
-					<input type="checkbox" name="autodesc" id="autodesc" value="true" />
-					提取
-					<input type="text" name="autodescsize" id="autodescsize" value="200" size="3" class="inputls" />
-					字到摘要
-					&nbsp;
-					<input type="checkbox" name="autopage" id="autopage" value="true" />
-					自动分页
-					<input type="text" name="autopagesize" id="autopagesize" value="5" size="6" class="inputls" />
-					KB</div></td>
+                </script>
+            </td>
 		</tr>
 		<tr class="nb">
 			<td height="124" align="right">组　图：</td>

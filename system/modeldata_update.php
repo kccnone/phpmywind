@@ -30,8 +30,9 @@ else
 <script type="text/javascript" src="templates/js/getinfosrc.js"></script>
 <script type="text/javascript" src="plugin/colorpicker/colorpicker.js"></script>
 <script type="text/javascript" src="plugin/calendar/calendar.js"></script>
-<script type="text/javascript" src="editor/kindeditor-min.js"></script>
-<script type="text/javascript" src="editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="editor/lang/zh-cn/zh-cn.js"></script>
 <script>
 //自定义字段通过AJAX来输出时需要提前声明
 var editor;

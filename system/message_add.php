@@ -7,8 +7,9 @@
 <link href="templates/style/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="templates/js/jquery.min.js"></script>
 <script type="text/javascript" src="templates/js/checkf.func.js"></script>
-<script type="text/javascript" src="editor/kindeditor-min.js"></script>
-<script type="text/javascript" src="editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="editor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
 <div class="formHeader"> <span class="title">添加留言</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
@@ -25,50 +26,25 @@
 		</tr>
 		<tr>
 			<td height="198" align="right">留言内容：</td>
-			<td><textarea name="content" id="content"></textarea>
-				<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="content"]', {
-						resizeType : 1,
-						width:'500px',
-						height:'180px',
-						extraFileUploadParams : {
-							sessionid :  '<?php echo session_id(); ?>'
-						},
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			<td>
+				<script id="content"  name="content" type="text/plain" style="width:667px; height:218px;"></script>
+                <script>
+					var ue = UE.getEditor('content',{
+						autoHeightEnabled: false
 					});
-				});
-				</script></td>
+                </script>
+            </td>
 		</tr>
 		<tr>
 			<td height="198" align="right">回复内容：</td>
-			<td><textarea name="recont" id="recont"></textarea>
-				<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="recont"]', {
-						resizeType : 1,
-						width:'500px',
-						height:'180px',
-						extraFileUploadParams : {
-							sessionid :  '<?php echo session_id(); ?>'
-						},
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			<td>
+            	<script id="recont"  name="recont" type="text/plain" style="width:667px; height:218px;"></script>
+                <script>
+					var ue = UE.getEditor('recont',{
+						autoHeightEnabled: false
 					});
-				});
-				</script></td>
-				</td>
+                </script>
+            </td>
 		</tr>
 		<tr>
 			<td height="40" align="right">排列排序：</td>
