@@ -956,8 +956,8 @@ function GetDiyField($type='',$id=0,$row='')
 			//编辑器模式
 			else if($r['fieldtype'] == 'mediumtext')
 			{
-				$reStr .= '<textarea name="'.$r['fieldname'].'" id="'.$r['fieldname'].'" class="kindeditor">'.$fieldvalue.'</textarea>';
-				$reStr .= '<script type="text/javascript">var editor;KindEditor.ready(function(K) {editor = K.create(\'textarea[name="'.$r['fieldname'].'"]\', {allowFileManager:true,width:\'667px\',height:\'280px\',extraFileUploadParams:{sessionid:\''.session_id().'\'}});});</script>';
+				$reStr .= '<script name="'.$r['fieldname'].'" id="'.$r['fieldname'].'" type="text/plain" style="width:667px; height:218px;">'.$fieldvalue.'</script>';
+				$reStr .= '<script>var ue = UE.getEditor("'.$r['fieldname'].'",{autoHeightEnabled: false});</script>';
 			}
 			
 			$reStr .= '</td></tr></table>';
