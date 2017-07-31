@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* The main calendar widget.  DIV containing a table. */
 
-div.calendar{position:relative;}
+div.calendar{position:relative; z-index:1000;}
 
 .calendar, .calendar table{
   border: 1px solid #b3cbe4;
