@@ -67,11 +67,11 @@ a:focus{outline:none;}
 #scrollmenu .viewport{width:190px;position:relative;}
 #scrollmenu .overview{list-style:none;position:absolute;left:0;top:0;padding:0;margin:0;}
 #scrollmenu .scrollbar{width:8px;position:relative;float:right;margin-right:-8px}
-#scrollmenu .thumb{background:url(../images/scrbar_thumb.png) no-repeat 50% 100%;width:6px;width:7px\0;*width:13px!important;_width:13px;height:20px;cursor:pointer;overflow:hidden;position:absolute;top:0;left:0px;}
+#scrollmenu .thumb{background:url(../images/scrbar_thumb.png) no-repeat 50% 100%;background-size: cover;width:6px;width:7px\0;*width:13px!important;_width:13px;height:20px;cursor:pointer;overflow:hidden;position:absolute;top:0;left:0px;}
 #scrollmenu .thumb .end{background:url(../images/scrbar_thumb.png) no-repeat 50% 0;overflow:hidden;width:6px;width:7px\0;*width:13px!important;_width:13px;height:5px;}
 #scrollmenu .disable{display:none;}
 #scrollmenu .thumb{transition-duration:300ms;}
-#scrollmenu .thumb:hover{background:url(../images/scrbar_thumb_on.png) no-repeat 50% 100%;}
+#scrollmenu .thumb:hover{background:url(../images/scrbar_thumb_on.png) no-repeat 50% 100%;background-size: cover;}
 #scrollmenu .thumb:hover .end{background:url(../images/scrbar_thumb_on.png) no-repeat 50% 0;}
 
 
