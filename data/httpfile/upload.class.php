@@ -139,6 +139,54 @@ function UploadFile($upfile, $iswatermark='')
 			WaterMark($save_dir, PHPMYWIND_ROOT.'/'.$cfg_markpicurl, $cfg_markminwidth, $cfg_markminheight, $cfg_markwhere,
 			          $cfg_marktext, '黑体', $cfg_marksize, $cfg_markcolor, $cfg_marktype);
 		}
+		if(in_array($tempfile_ext, array('jpg','png','gif'))){
+	        $src = $save_dir;
+	        switch ($tempfile_ext) {
+	        	case 'jpg':
+	        		$src_img = imagecreatefromjpeg($src);
+	        		break;
+	        	case 'png':
+	        		$src_img = imagecreatefrompng($src);
+	        		break;
+	        	case 'gif':
+	        		$src_img = imagecreatefromgif($src);
+	        		break;
+	        	default:
+	        		$src_img = imagecreatefrompng($src_03);
+	        		break;
+	        }
+	        
+	        list($width,$height) = getimagesize($src);
+	        $percent = 0.1;
+	        $newwidth = $width * $percent;
+	        $newheight = $height * $percent;
+	        $dst_img = imagecreatetruecolor($newwidth, $newheight);
+	        imagecopyresized($dst_img, $src_img, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+	        $small_dir = $upload_dir.'/small';
+			if(!file_exists($small_dir))
+			{
+				mkdir($small_dir);
+				
+				$fp = fopen($small_dir.'/index.htm', 'w');
+				fclose($fp);
+			}	
+			$small_dirf = $upload_dir.'/small/'.$filename; 
+	        switch ($tempfile_ext) {
+	        	case 'jpg':
+	        		imagejpeg($dst_img,$small_dirf);	
+	        		break;
+	        	case 'png':
+	        		imagepng($dst_img,$small_dirf);		
+	        		break;
+	        	case 'gif':
+	        		imagegif($dst_img,$small_dirf);	
+	        		break;
+	        	default:
+	        		imagepng($dst_img,$small_dirf);	
+	        		break;
+	        }			       
+	        	
+		}
 
 		//添加数据库记录
 		$dosql->ExecNoneQuery("INSERT INTO `#@__uploads` (name, path, size, type, posttime) VALUES ('$filename', '$save_url', '$tempfile_size', '$save_type', '".time()."')");
