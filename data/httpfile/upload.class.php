@@ -157,7 +157,7 @@ function UploadFile($upfile, $iswatermark='')
 	        }
 	        
 	        list($width,$height) = getimagesize($src);
-	        $percent = 0.1;
+	        $percent = 0.04;
 	        $newwidth = $width * $percent;
 	        $newheight = $height * $percent;
 	        $dst_img = imagecreatetruecolor($newwidth, $newheight);
