@@ -1,0 +1,23 @@
+.update{
+	display: none; z-index: 99999;
+	position: fixed; top: 0px; left: 0px;
+	width: 100%; height: 100%; background-color: #fff;
+}	
+.update_box{
+	position: relative;
+}
+.update_o01{
+	position: relative;
+	padding-top: 185px;
+}
+.update_txt01{
+	color: #666666; font-size: 16px; line-height: 26px; text-align: center;
+}
+.update_o03{
+	padding-top: 15px;
+}
+.update_btn{
+	position: relative;
+	width: 200px; height: 40px; margin: 0px auto; background: #000;
+	cursor: pointer; color: #fff; line-height: 40px; text-align: center;
+}

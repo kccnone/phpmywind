@@ -229,6 +229,7 @@ function SetSysEvent($m='', $cid='', $a='')
 <meta charset="utf-8">
 <title>KCCN 管理中心</title>
 <link href="templates/style/admin.css" rel="stylesheet" />
+<link href="templates/style/browser.css" rel="stylesheet" />
 <script src="templates/js/jquery.min.js"></script>
 <script>
 function CheckForm()
@@ -331,5 +332,102 @@ $(function(){
 		</div>
 	</div>
 </div>
+<div id="update" class="update" >
+	<div class="update_box" >
+		<div class="update_o01"><p class="update_txt01">检测到您的浏览器版本过低，为了不影响网站的正常使用，请升级您的浏览器。<a target="_blank" href="http://help.kccn.net/question_show.php?cid=20&id=33&page=1" class="update_txt02">点击去下载</a></p></div>
+		<div class="update_o03"><p class="update_btn" onclick="hide();" >忽略，继续浏览</p></div>
+	</div>
+</div>
+<script type="text/javascript">
+function BrowserType()  
+{  
+  var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+  var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器  
+  var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器  
+  var isEdge = userAgent.indexOf("Windows NT 6.1; Trident/7.0;") > -1 && !isIE; //判断是否IE的Edge浏览器  
+  var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器  
+  var isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1; //判断是否Safari浏览器  
+  var isChrome = userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1; //判断Chrome浏览器  
+
+  if (isIE)   
+  {  
+       var reIE = new RegExp("MSIE (\\d+\\.\\d+);");  
+       reIE.test(userAgent);  
+       var fIEVersion = parseFloat(RegExp["$1"]);  
+       if(fIEVersion == 7)  
+       { return "IE7";}  
+       else if(fIEVersion == 8)  
+       { return "IE8";}  
+       else if(fIEVersion == 9)  
+       { return "IE9";}  
+       else if(fIEVersion == 10)  
+       { return "IE10";}  
+       else if(fIEVersion == 11)  
+       { return "IE11";}  
+       else  
+       { return "0"}//IE版本过低  
+   }//isIE end  
+     
+   if (isFF) {  return "FF";}  
+   if (isOpera) {  return "Opera";}  
+   if (isSafari) {  return "Safari";}  
+   if (isChrome) { return "Chrome";}  
+   if (isEdge) { return "Edge";}  
+}    
+//判断是否是IE浏览器  
+function isIE()  
+{  
+  var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+  var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器  
+  if(isIE)  
+  {  
+      return "1";  
+  }  
+  else  
+  {  
+      return "-1";  
+  }  
+} 
+//判断是否是IE浏览器，包括Edge浏览器  
+function IEVersion()  
+{  
+  	var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+  	var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器  
+	var isEdge = userAgent.indexOf("Windows NT 6.1; Trident/7.0;") > -1 && !isIE; //判断是否IE的Edge浏览器  
+  	if(isIE)  
+	{  
+	   var reIE = new RegExp("MSIE (\\d+\\.\\d+);");  
+	   reIE.test(userAgent);  
+	   var fIEVersion = parseFloat(RegExp["$1"]);  
+	   if(fIEVersion == 7)  
+	   { return "IE7";}  
+	   else if(fIEVersion == 8)  
+	   { return "IE8";}  
+	   else if(fIEVersion == 9)  
+	   { return "IE9";}  
+	   else if(fIEVersion == 10)  
+	   { return "IE10";}  
+	   else if(fIEVersion == 11)  
+	   { return "IE11";}  
+	   else  
+	   { return "0"}//IE版本过低  
+	}  
+	else if(isEdge)  
+	{  
+	    return "Edge";  
+	}  
+	else  
+	{  
+		return "-1";//非IE  
+	}  
+}
+var bv = BrowserType();
+if(bv=='Safari'||bv=='IE7'||bv=='IE8'||bv=='IE9'){
+	document.getElementById('update').style.display = "block";
+} 
+function hide(){
+	document.getElementById('update').style.display = "none";	
+}	
+</script>
 </body>
 </html>
