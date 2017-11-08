@@ -13,7 +13,8 @@ update: 2014-5-28 15:56:55
 $action  = isset($action)  ? $action  : '';
 $keyword = isset($keyword) ? $keyword : '';
 $page = isset($page) ? $page : '';
-
+$device = isset($device) ? $device : '';
+$equip = isset($equip) ? $equip : '';
 
 //删除单条记录
 if($action == 'del')
@@ -145,6 +146,10 @@ if($action == 'delall')
 	if(!empty($cid))     $sql .= " AND (classid=$cid OR parentstr Like '%,$cid,%')";
 
 	if(!empty($keyword)) $sql .= " AND title LIKE '%$keyword%'";
+
+	if(!empty($device)) $sql .= " AND ver='$device'";
+
+	if(!empty($equip)) $sql .= " AND equip='$equip'";
 
 	if(!empty($flag))
 	{
