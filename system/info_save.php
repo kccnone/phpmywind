@@ -130,6 +130,7 @@ if($action == 'update')
 
 	if($dosql->ExecNoneQuery($sql))
 	{
+		$gourl  = 'info_update.php?id='.$classid;
 		header("location:$gourl");
 		exit();
 	}

@@ -301,7 +301,8 @@ $row = $dosql->GetOne("SELECT * FROM `#@__soft` WHERE `id`=$id");
 		<input type="hidden" name="cid" id="cid" value="<?php echo $row['classid']; ?>" />
 		<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
         <input type="hidden" name="page" id="page" value="<?php echo $page; ?>" />
-        <input type="hidden" name="keyword" id="keyword" value="<?php echo $keyword; ?>" />        
+        <input type="hidden" name="keyword" id="keyword" value="<?php echo $keyword; ?>" />
+        <input type="hidden" name="flagc" id="flagc" value="<?php echo $flag; ?>" />            
 	</div>
 </form>
 </body>

@@ -98,20 +98,40 @@
 					$infotype = ' <i title="栏目属于[视频]类型">[视频]</i>';
 					break;
 				case 6:
+					$addurl   = 'winter_add.php?cid='.$row['id'];
+					$infotype = ' <i title="栏目属于[友情链接]类型">[友情链接]</i>';
+					break;					
+				case 7:
 					$addurl   = 'spring_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义一]类型">[预定义一]</i>';
 					break;
-				case 7:
+				case 8:
 					$addurl   = 'summer_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义二]类型">[预定义二]</i>';
 					break;
-				case 8:
+				case 9:
 					$addurl   = 'autumn_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义三]类型">[预定义三]</i>';
 					break;
-				case 9:
+				case 10:
 					$addurl   = 'winter_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义四]类型">[预定义四]</i>';
+					break;
+				case 11:
+					$addurl   = 'vedio_add.php?cid='.$row['id'];
+					$infotype = ' <i title="栏目属于[预定义五]类型">[预定义五]</i>';
+					break;
+				case 12:
+					$addurl   = 'spring_add.php?cid='.$row['id'];
+					$infotype = ' <i title="栏目属于[预定义六]类型">[预定义六]</i>';
+					break;
+				case 13:
+					$addurl   = 'summer_add.php?cid='.$row['id'];
+					$infotype = ' <i title="栏目属于[预定义七]类型">[预定义七]</i>';
+					break;
+				case 14:
+					$addurl   = 'autumn_add.php?cid='.$row['id'];
+					$infotype = ' <i title="栏目属于[预定义八]类型">[预定义八]</i>';
 					break;
 				default:
 					$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$row['infotype']);

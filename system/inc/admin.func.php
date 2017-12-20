@@ -44,16 +44,31 @@ function CategoryType($type=0, $id=0, $i=0)
 			$tbname = '#@__vedio';
 			break;
 		case 6:
-			$tbname = '#@__spring';
+			$tbname = '#@__friendship';
 			break;
 		case 7:
-			$tbname = '#@__summer';
+			$tbname = '#@__spring';
 			break;
 		case 8:
-			$tbname = '#@__autumn';
+			$tbname = '#@__summer';
 			break;
 		case 9:
+			$tbname = '#@__autumn';
+			break;
+		case 10:
 			$tbname = '#@__winter';
+			break;
+		case 11:
+			$tbname = '#@__east';
+			break;
+		case 12:
+			$tbname = '#@__west';
+			break;
+		case 13:
+			$tbname = '#@__north';
+			break;
+		case 14:
+			$tbname = '#@__south';
 			break;
 		default:
 			$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=$type");
@@ -1395,17 +1410,32 @@ function IsCategoryPriv($cid=0,$act='',$return='',$issave='1')
 						$m = 'vedio';
 						break;
 					case 6:
-						$m = 'spring';
+						$m = 'friendship';
 						break;
 					case 7:
-						$m = 'summer';
+						$m = 'spring';
 						break;
 					case 8:
-						$m = 'autumn';
+						$m = 'summer';
 						break;
 					case 9:
+						$m = 'autumn';
+						break;
+					case 10:
 						$m = 'winter';
-						break;						
+						break;
+					case 11:
+						$m = 'east';
+						break;
+					case 12:
+						$m = 'west';
+						break;
+					case 13:
+						$m = 'north';
+						break;
+					case 14:
+						$m = 'south';
+						break;													
 					default:
 						$r2 = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$r['infotype']);
 						if(isset($r2) && is_array($r2))

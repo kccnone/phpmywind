@@ -77,11 +77,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoimg` WHERE `id`=$id");
 		<tr class="nb">
 			<td colspan="2" height="26"><div class="line"> </div></td>
 		</tr>
-		<tr class="nb">
-			<td colspan="2" height="0" id="df"><?php
-			echo GetDiyField('2',$row['classid'],$row);
-			?></td>
-		</tr>
+		<tr><td width="25%" height="40" align="right">中英文版：</td><td width="75%"><input name="ver" id="ver" value="ch" checked="checked" type="radio">&nbsp;中文&nbsp;&nbsp;&nbsp;<input name="ver" id="ver" value="en" type="radio">&nbsp;英文<span class="cnote"></span></td></tr>
 		<tr>
 			<td height="40" align="right">文章来源：</td>
 			<td><input type="text" name="source" id="source" class="input" value="<?php echo $row['source']; ?>" />
@@ -203,7 +199,8 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoimg` WHERE `id`=$id");
 		<input type="hidden" name="cid" id="cid" value="<?php echo $row['classid']; ?>" />
 		<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
         <input type="hidden" name="page" id="page" value="<?php echo $page; ?>" />
-        <input type="hidden" name="keyword" id="keyword" value="<?php echo $keyword; ?>" />        
+        <input type="hidden" name="keyword" id="keyword" value="<?php echo $keyword; ?>" />
+        <input type="hidden" name="flagc" id="flagc" value="<?php echo $flag; ?>" />            
 	</div>
 </form>
 </body>

@@ -201,9 +201,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__winter` WHERE `id`=$id");
 		<input type="button" class="back" value="返回" onclick="history.go(-1);" />
 		<input type="hidden" name="action" id="action" value="add" />
 		<input type="hidden" name="cid" id="cid" value="<?php echo $row['classid']; ?>" />
-		<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />
-        <input type="hidden" name="page" id="page" value="<?php echo $page; ?>" />
-        <input type="hidden" name="keyword" id="keyword" value="<?php echo $keyword; ?>" />        
+		<input type="hidden" name="id" id="id" value="<?php echo $id; ?>" />        
 	</div>
 </form>
 </body>

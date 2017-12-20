@@ -11,7 +11,7 @@
 <script type="text/javascript" src="templates/js/loadimage.js"></script>
 <script type="text/javascript">
 $(function(){
-	GetList2('vedio','<?php echo ($cid = isset($cid) ? $cid : ''); ?>','<?php echo ($flag = isset($flag) ? $flag : 'all'); ?>','<?php echo ($page = isset($page) ? $page : 1); ?>','<?php echo ($keyword = isset($keyword) ? $keyword : ''); ?>','<?php echo ($device = isset($device) ? $device : ''); ?>','<?php echo ($equip = isset($equip) ? $equip : ''); ?>');
+	GetList2('vedio','<?php echo ($cid = isset($cid) ? $cid : ''); ?>','<?php echo ($flag = isset($flag) ? $flag : 'all'); ?>','<?php echo ($page = isset($page) ? $page : 1); ?>','<?php echo ($keyword = isset($keyword) ? $keyword : ''); ?>');
 })
 </script>
 </head>
@@ -23,22 +23,7 @@ $(function(){
 	<?php GetMgrAjaxType('#@__infoclass',5); ?>
 	</span>
 </span>
-<!--<span class="title" style="font-size: 13px;border: 0;">&nbsp;&nbsp;语言版本：</span>
-<span class="alltype">
-	<a href="javascript:;" onclick="GetDevice('','','查看全部',$(this))" class="btn">查看全部</a>
-	<span class="drop" style="display: none;">
-		<a href="javascript:;" onclick="GetDevice('','ch','中文版',$(this))">中文版</a>
-        <a href="javascript:;" onclick="GetDevice('','en','英文版',$(this))">英文版</a>
-	</span>
-</span>
-<span class="title" style="font-size: 13px;border: 0;">&nbsp;&nbsp;所属设备：</span>
-<span class="alltype">
-	<a href="javascript:;" onclick="GetEquip('','','查看全部',$(this))" class="btn">查看全部</a>
-	<span class="drop" style="display: none;">
-		<a href="javascript:;" onclick="GetEquip('','pc','PC版',$(this))">PC版</a>
-        <a href="javascript:;" onclick="GetEquip('','mb','手机版',$(this))">手机版</a>
-	</span>
-</span>-->
+
 <a href="javascript:location.reload();" class="reload">刷新</a></div>
 <form name="form" id="form" method="post">
 	<div id="list">

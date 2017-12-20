@@ -59,6 +59,21 @@
 				case 9:
 					$infotype = '预定义四';
 					break;
+				case 10:
+					$infotype = '预定义五';
+					break;
+				case 11:
+					$infotype = '预定义六';
+					break;
+				case 12:
+					$infotype = '预定义七';
+					break;
+				case 13:
+					$infotype = '预定义八';
+					break;
+				case 14:
+					$infotype = '友情链接';
+					break;
 				default:
 					$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$row['infotype']);
 					if(isset($r) && is_array($r))

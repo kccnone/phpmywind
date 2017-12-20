@@ -242,7 +242,7 @@ if($action == 'delall')
 		{
 			if(in_array($row['classid'], $catgoryUpdatePriv)){
 				$updateStr = '<a href="goods_update.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">修改</a>';
-				$copyStr = '<a href="goods_copy.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">复制</a>';
+				$copyStr = '<a href="goods_copy.php?cid='.$cid.'&id='.$row['id'].'">复制</a>';
 			}
 			else{
 				$updateStr = '修改';
@@ -252,7 +252,7 @@ if($action == 'delall')
 		else
 		{
 				$updateStr = '<a href="goods_update.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">修改</a>';
-				$copyStr = '<a href="goods_copy.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">复制</a>';
+				$copyStr = '<a href="goods_copy.php?cid='.$cid.'&id='.$row['id'].'">复制</a>';
 		}
 
 

@@ -49,6 +49,21 @@ switch($infotype)
 	case 9:
 		$tbnames = '#@__winter';
 		break;
+	case 10:
+		$tbnames = '#@__east';
+		break;
+	case 11:
+		$tbnames = '#@__west';
+		break;
+	case 12:
+		$tbnames = '#@__north';
+		break;
+	case 13:
+		$tbnames = '#@__south';
+		break;
+	case 14:
+		$tbnames = '#@__friendship';
+		break;
 	default:
 		$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=$infotype");
 		if(isset($r) && is_array($r))

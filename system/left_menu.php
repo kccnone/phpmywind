@@ -33,12 +33,21 @@
 				<div class="title" onclick="DisplayMenu('leftmenu02');" title="点击切换显示或隐藏"> 栏目内容管理 </div>
 				<div id="leftmenu02" style="display:none"> <a href="infoclass.php" target="main">栏目管理</a> <a href="maintype.php" target="main">二级类别管理</a>
 					<div class="hr_1"> </div>
-					<a href="info.php" target="main">单页信息管理</a> <a href="infolist.php" target="main">列表信息管理</a> <a href="infoimg.php" target="main">图片信息管理</a> <a href="soft.php" target="main">下载信息管理</a>
+					<a href="info.php" target="main">单页信息管理</a> 
+					<a href="infolist.php" target="main">列表信息管理</a> 
+					<a href="infoimg.php" target="main">图片信息管理</a> 
+					<a href="soft.php" target="main">下载信息管理</a>
                     <a href="vedio.php" target="main">视频信息管理</a>
+                    <a href="friendship.php" target="main">友情链接管理</a>
                     <a href="spring.php" target="main">预定义一信息管理</a>
                     <a href="summer.php" target="main">预定义二信息管理</a>
                     <a href="autumn.php" target="main">预定义三信息管理</a>
                     <a href="winter.php" target="main">预定义四信息管理</a>
+                    <a href="east.php" target="main">预定义五信息管理</a>
+                    <a href="west.php" target="main">预定义六信息管理</a>
+                    <a href="north.php" target="main">预定义七信息管理</a>
+                    <a href="south.php" target="main">预定义八信息管理</a>
+                    
 					<div class="hr_1"> </div>
 					<a href="fragment.php" target="main">碎片数据管理</a> <a href="diymodel.php" target="main">自定义模型</a> <a href="diyfield.php" target="main">自定义字段</a> <a href="infoflag.php" target="main" title="信息标记管理" class="infoattr"></a> <a href="infosrc.php" target="main" title="信息来源管理" class="infosrc"></a> </div>
 			</div>

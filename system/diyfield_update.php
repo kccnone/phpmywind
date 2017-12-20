@@ -19,7 +19,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__diyfield` WHERE `id`=$id");
 			<td width="25%" height="40" align="right">所属模型：</td>
 			<td width="75%"><select name="infotype" id="infotype" disabled="disabled">
 				<?php
-				$model = array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四');
+				$model = array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四','10'=>'预定义五','11'=>'预定义六','12'=>'预定义七','13'=>'预定义八','14'=>'友情链接');
 				foreach($model as $k=>$v)
 				{
 					if($row['infotype'] == $k)

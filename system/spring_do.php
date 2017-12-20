@@ -13,8 +13,6 @@ update: 2014-5-27 19:48:43
 $action  = isset($action)  ? $action  : '';
 $keyword = isset($keyword) ? $keyword : '';
 $page = isset($page) ? $page : '';
-$device = isset($device) ? $device : '';
-$equip = isset($equip) ? $equip : '';
 
 //删除单条记录
 if($action == 'del')
@@ -148,10 +146,6 @@ if($action == 'delall')
 
 	if(!empty($keyword)) $sql .= " AND title LIKE '%$keyword%'";
 
-	if(!empty($device)) $sql .= " AND ver='$device'";
-
-	if(!empty($equip)) $sql .= " AND equip='$equip'";
-
 	if(!empty($flag))
 	{
 		if($flag == 'all')
@@ -251,7 +245,7 @@ if($action == 'delall')
 		{
 			if(in_array($row['classid'], $catgoryUpdatePriv)){
 				$updateStr = '<a href="spring_update.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">修改</a>';
-				$copyStr = '<a href="spring_copy.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">复制</a>';
+				$copyStr = '<a href="spring_copy.php?cid='.$cid.'&id='.$row['id'].'">复制</a>';
 			}
 			else{
 				$updateStr = '修改';
@@ -261,7 +255,7 @@ if($action == 'delall')
 		else
 		{
 				$updateStr = '<a href="spring_update.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">修改</a>';
-				$copyStr = '<a href="spring_copy.php?cid='.$cid.'&id='.$row['id'].'&flag='.$flag.'&page='.$page.'&keyword='.$keyword.'">复制</a>';
+				$copyStr = '<a href="spring_copy.php?cid='.$cid.'&id='.$row['id'].'">复制</a>';
 		}
 
 

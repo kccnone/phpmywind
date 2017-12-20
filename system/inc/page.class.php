@@ -341,8 +341,8 @@ class Page
 			//显示首页的裢接
 			if($this->page > 1)
 			{
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\'1\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&lt;&lt;</a>';
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$previous.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&lt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\'1\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&lt;&lt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$previous.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&lt;</a>';
 			}
 			else
 			{
@@ -362,7 +362,7 @@ class Page
 					}
 					else
 					{
-						$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$i.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')" class="num">'.$i.'</a>';
+						$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$i.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')" class="num">'.$i.'</a>';
 					}
 				}
 			}
@@ -402,7 +402,7 @@ class Page
 					}
 					else
 					{
-						$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$i.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')" class="num">'.$i.'</a>';
+						$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$i.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')" class="num">'.$i.'</a>';
 					}
 				}
 				if($this->page < $this->totalpage-3)
@@ -414,8 +414,8 @@ class Page
 			//显示下一页的裢接
 			if($this->page < $this->totalpage)
 			{
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$next.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&gt;</a>';
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$this->totalpage.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&gt;&gt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$next.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&gt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$this->totalpage.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&gt;&gt;</a>';
 			}
 			else
 			{
@@ -462,8 +462,8 @@ class Page
 			//显示首页的裢接
 			if($this->page > 1)
 			{
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\'1\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&lt;&lt;</a>';
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$previous.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&lt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\'1\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&lt;&lt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$previous.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&lt;</a>';
 			}
 			else
 			{
@@ -478,8 +478,8 @@ class Page
 			//显示下一页的裢接
 			if($this->page < $this->totalpage)
 			{
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$next.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&gt;</a>';
-				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$this->totalpage.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\',\''.$device.'\',\''.$equip.'\')">&gt;&gt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$next.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&gt;</a>';
+				$pagetxt .= '<a href="javascript:;" onclick="PageList(\''.$this->totalpage.'\',\''.$cid.'\',\''.$flag.'\',\''.$keyword.'\')">&gt;&gt;</a>';
 			}
 			else
 			{

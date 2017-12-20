@@ -88,10 +88,11 @@ $row = $dosql->GetOne("SELECT * FROM `#@__admingroup` WHERE `id`=$id");
 					<input type="checkbox" name="model[]" value="infoflag" <?php echo GetModelPriv('infoflag'); ?> />
 					信息标记管理</span> <span>
 					<input type="checkbox" name="model[]" value="infosrc" <?php echo GetModelPriv('infosrc'); ?> />
-					信息来源管理</span>
-                    <span>
+					信息来源管理</span><span>
 					<input type="checkbox" name="model[]" value="vedio" <?php echo GetModelPriv('vedio'); ?> />
 					视频信息管理</span> <span>
+					<input type="checkbox" name="model[]" value="friendship"  <?php echo GetModelPriv('friendship'); ?>/>
+					友情链接信息管理</span> <span>
 					<input type="checkbox" name="model[]" value="spring" <?php echo GetModelPriv('spring'); ?> />
 					预定义一信息管理</span> <span>
 					<input type="checkbox" name="model[]" value="summer" <?php echo GetModelPriv('summer'); ?> />
@@ -99,7 +100,15 @@ $row = $dosql->GetOne("SELECT * FROM `#@__admingroup` WHERE `id`=$id");
 					<input type="checkbox" name="model[]" value="autumn"  <?php echo GetModelPriv('autumn'); ?>/>
 					预定义三信息管理</span> <span>
 					<input type="checkbox" name="model[]" value="winter"  <?php echo GetModelPriv('winter'); ?>/>
-					预定义四信息管理</span></div>
+					预定义四信息管理</span>
+					<input type="checkbox" name="model[]" value="east" <?php echo GetModelPriv('east'); ?> />
+					预定义五信息管理</span> <span>
+					<input type="checkbox" name="model[]" value="west" <?php echo GetModelPriv('west'); ?> />
+					预定义六信息管理</span> <span>
+					<input type="checkbox" name="model[]" value="north" <?php echo GetModelPriv('north'); ?> />
+					预定义七信息管理</span><span>
+					<input type="checkbox" name="model[]" value="south"  <?php echo GetModelPriv('south'); ?>/>
+					预定义八信息管理</span></div>
 				<div class="purviewTitle"><strong>模块扩展管理</strong></div>
 				<div class="purviewList"> <span>
 					<input type="checkbox" name="model[]" value="member" <?php echo GetModelPriv('member'); ?> />
@@ -252,25 +261,45 @@ function Show($siteid=1, $groupid=0, $id=0, $i=0)
 				$addurl   = 'soft_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[产品]类型">[产品]<i>';
 				break;
-				case 5:
+			case 5:
 				$addurl   = 'vedio_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[视频]类型">[视频]</i>';
 				break;
 			case 6:
+				$addurl   = 'winter_add.php?cid='.$row['id'];
+				$infotype = ' <i title="栏目属于[友情链接]类型">[友情链接]</i>';
+				break;				
+			case 7:
 				$addurl   = 'spring_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[预定义一]类型">[预定义一]</i>';
 				break;
-			case 7:
+			case 8:
 				$addurl   = 'summer_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[预定义二]类型">[预定义二]</i>';
 				break;
-			case 8:
+			case 9:
 				$addurl   = 'autumn_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[预定义三]类型">[预定义三]</i>';
 				break;
-			case 9:
+			case 10:
 				$addurl   = 'winter_add.php?cid='.$row['id'];
 				$infotype = ' <i title="栏目属于[预定义四]类型">[预定义四]</i>';
+				break;
+			case 11:
+				$addurl   = 'vedio_add.php?cid='.$row['id'];
+				$infotype = ' <i title="栏目属于[预定义五]类型">[预定义五]</i>';
+				break;
+			case 12:
+				$addurl   = 'spring_add.php?cid='.$row['id'];
+				$infotype = ' <i title="栏目属于[预定义六]类型">[预定义六]</i>';
+				break;
+			case 13:
+				$addurl   = 'summer_add.php?cid='.$row['id'];
+				$infotype = ' <i title="栏目属于[预定义七]类型">[预定义七]</i>';
+				break;
+			case 14:
+				$addurl   = 'autumn_add.php?cid='.$row['id'];
+				$infotype = ' <i title="栏目属于[预定义八]类型">[预定义八]</i>';
 				break;
 			default:
 				$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$row['infotype']);

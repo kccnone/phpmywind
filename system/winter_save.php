@@ -16,7 +16,8 @@ $action = isset($action) ? $action : '';
 $cid = isset($cid) ? $cid : '';
 $page = isset($page) ? $page : 1;
 $keyword = isset($keyword) ? $keyword : '';
-$gourl  = $gourl.'?cid='.$cid.'&page='.$page.'&keyword='.$keyword;
+$flagc = isset($flagc) ? $flagc : '';
+$gourl  = $gourl.'?cid='.$cid.'&page='.$page.'&keyword='.$keyword.'&flag='.$flagc;
 
 
 //添加列表信息

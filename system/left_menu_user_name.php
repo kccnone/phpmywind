@@ -108,13 +108,22 @@
 								case 6:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
+										echo '<a href="friendship.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="friendship_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 7:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
 										echo '<a href="spring.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
 										echo '<a href="spring_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 7:
+								case 8:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="summer.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
@@ -123,7 +132,7 @@
 										echo '<a href="summer_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 8:
+								case 9:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="autumn.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
@@ -132,13 +141,49 @@
 										echo '<a href="autumn_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 9:
+								case 10:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="winter.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
 										echo '<a href="winter_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 11:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="east.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="east_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 12:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="west.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="west_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 13:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="north.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="north_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 14:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="south.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="south_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
 								default:
@@ -206,7 +251,7 @@
 										echo '<a href="goods_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-									case 5:
+								case 5:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="vedio.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
@@ -218,13 +263,22 @@
 								case 6:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
+										echo '<a href="friendship.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="friendship_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 7:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
 										echo '<a href="spring.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
 										echo '<a href="spring_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 7:
+								case 8:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="summer.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
@@ -233,7 +287,7 @@
 										echo '<a href="summer_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 8:
+								case 9:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="autumn.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
@@ -242,13 +296,49 @@
 										echo '<a href="autumn_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
-								case 9:
+								case 10:
 									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="winter.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
 										echo '<a href="winter_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 11:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="east.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="east_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 12:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="west.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="west_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 13:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="north.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="north_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
+									}
+									break;
+								case 14:
+									if(IsCategoryPriv($row2['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="south.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2['id'],'add',$cfg_siteid,0)){
+										echo '<a href="south_add.php?cid='.$row2['id'].'" target="main">'.$row2['classname'].'添加</a>';
 									}
 									break;
 								default:
@@ -315,7 +405,7 @@
 										echo '<a href="goods_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
 									}
 									break;
-									case 5:
+								case 5:
 									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="vedio.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
@@ -327,13 +417,22 @@
 								case 6:
 									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
+										echo '<a href="friendship.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
+										echo '<a href="friendship_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
+									}
+									break;
+								case 7:
+									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
 										echo '<a href="spring.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
 										echo '<a href="spring_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
 									}
 									break;
-								case 7:
+								case 8:
 									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="summer.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
@@ -342,7 +441,7 @@
 										echo '<a href="summer_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
 									}
 									break;
-								case 8:
+								case 9:
 									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="autumn.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
@@ -351,13 +450,49 @@
 										echo '<a href="autumn_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
 									}
 									break;
-								case 9:
+								case 10:
 									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
 										echo '<div class="hr_1"></div>';
 										echo '<a href="winter.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
 									}
 									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
 										echo '<a href="winter_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
+									}
+									break;
+								case 11:
+									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="east.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
+										echo '<a href="east_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
+									}
+									break;
+								case 12:
+									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="west.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
+										echo '<a href="west_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
+									}
+									break;
+								case 13:
+									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="north.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
+										echo '<a href="north_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
+									}
+									break;
+								case 14:
+									if(IsCategoryPriv($row2t['id'],'list',$cfg_siteid,0)){
+										echo '<div class="hr_1"></div>';
+										echo '<a href="south.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'管理</a>';
+									}
+									if(IsCategoryPriv($row2t['id'],'add',$cfg_siteid,0)){
+										echo '<a href="south_add.php?cid='.$row2t['id'].'" target="main">'.$row2t['classname'].'添加</a>';
 									}
 									break;
 								default:

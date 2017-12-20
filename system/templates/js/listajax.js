@@ -31,7 +31,7 @@ function GetList(par_tbn, par_cid)
 	});
 }
 
-function GetList2(par_tbn, par_cid,par_flag, par_page, par_keyword, par_device, par_equip)
+function GetList2(par_tbn, par_cid,par_flag, par_page, par_keyword)
 {
 	pag     = par_tbn;
 	tbn     = par_tbn;
@@ -40,12 +40,10 @@ function GetList2(par_tbn, par_cid,par_flag, par_page, par_keyword, par_device, 
 	flag    = par_flag;
 	page    = par_page;
 	keyword = par_keyword;
-	device = par_device;
-	equip = par_equip;
 
 
 	$.ajax({
-		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&keyword="+encodeURI(keyword)+"&page="+page+"&device="+device+"&equip="+equip,
+		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&keyword="+encodeURI(keyword)+"&page="+page,
 		type:'get',
 		dataType:'html',
 		beforeSend:function(){
@@ -79,53 +77,6 @@ function GetDone(data, textStatus, xmlHttp)
 	QuickToolBar();
 }
 
-//中英文
-function GetDevice(par_cid, par_device, classname, obj)
-{
-	//cid = par_cid;
-	device = par_device;
-
-	if(cid == ''){
-		obj.html(classname);
-	}else{
-		obj.parent().parent().find("a.btn").html(classname);
-	}
-
-	$.ajax({
-		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&device="+device+"&equip="+equip,
-		type:'get',
-		dataType:'html',
-		beforeSend:function(){
-			$(".masklayer").css("height",$(document).height()).show();
-			$(".loading4").show();
-		},
-		success:GetDone
-	});
-}
-
-//设备选择
-function GetEquip(par_cid, par_equip, classname, obj)
-{
-	//cid = par_cid;
-	equip = par_equip;
-
-	if(cid == ''){
-		obj.html(classname);
-	}else{
-		obj.parent().parent().find("a.btn").html(classname);
-	}
-
-	$.ajax({
-		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&equip="+equip+"&device="+device,
-		type:'get',
-		dataType:'html',
-		beforeSend:function(){
-			$(".masklayer").css("height",$(document).height()).show();
-			$(".loading4").show();
-		},
-		success:GetDone
-	});
-}
 
 //选择栏目函数
 function GetType(par_cid, classname, obj)
@@ -139,7 +90,7 @@ function GetType(par_cid, classname, obj)
 	}
 
 	$.ajax({
-		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&device="+device+"&equip="+equip,
+		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag,
 		type:'get',
 		dataType:'html',
 		beforeSend:function(){
@@ -222,7 +173,7 @@ function PageList(par_page)
 	page = par_page;
 
 	$.ajax({
-		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&keyword="+encodeURI(keyword)+"&page="+page+"&device="+device+"&equip="+equip,
+		url : pag+"_do.php?tbname="+tbn+"&cid="+cid+"&tid="+tid+"&flag="+flag+"&keyword="+encodeURI(keyword)+"&page="+page,
 		type:'get',
 		dataType:'html',
 		beforeSend:function(){
