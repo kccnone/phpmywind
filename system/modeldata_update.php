@@ -106,7 +106,7 @@ $defaultfield = explode(',', $r['defaultfield']);
 			<td height="40" align="right">缩略图片：</td>
 			<td><div id="picurl_t" ><?php if($row['picurl']!=""){ ?><img src="<?php echo "../".$row['picurl']; ?>" style="height:50px; margin:10px 0px;" ><?php } ?></div>
             <input type="text" name="picurl" id="picurl" class="input" value="<?php echo $row['picurl']; ?>" />
-				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_size; ?>,'picurl')">上 传</span><span class="rePicTxt">
+				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span><span class="rePicTxt">
 				<input type="checkbox" name="rempic" id="rempic" value="true" />
 				远程</span> <span class="cutPicTxt"><a href="javascript:;" onclick="GetJcrop('jcrop','picurl');return false;">裁剪</a></span> </span></td>
 		</tr>

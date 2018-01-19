@@ -106,7 +106,7 @@ $posttime = isset($row['posttime']) ? GetDateTime($row['posttime']) : GetDateTim
 		<tr>
 			<td height="40" align="right">缩略图片：</td>
 			<td><input type="text" name="picurl" id="picurl" class="input" value="<?php echo $picurl; ?>" />
-				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_size; ?>,'picurl')">上 传</span></span></td>
+				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span></span></td>
 		</tr>
 		<tr class="nb">
 			<td height="40" align="right">更新时间：</td>

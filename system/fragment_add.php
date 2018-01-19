@@ -25,7 +25,7 @@
 		<tr>
 			<td height="40" align="right">缩略图片：</td>
 			<td><div id="picurl_t" ></div><input type="text" name="picurl" id="picurl" class="input" />
-				<span class="maroon">&nbsp;</span><span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_size; ?>,'picurl')">上 传</span></span></td>
+				<span class="maroon">&nbsp;</span><span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span></span></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>

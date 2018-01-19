@@ -73,7 +73,7 @@ RewriteRule ^(.*)/(\w+)\.html$ $1/$2.php?
 RewriteEngine On
 
 # 修改以下语句中的 / 改为您的系统目录地址，如果程序放在根目录中则无需修改
-RewriteBase /phpmywind2
+RewriteBase /phpmywind
 
 # Rewrite 系统规则请勿修改<br />RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule ^index.html$ index.php

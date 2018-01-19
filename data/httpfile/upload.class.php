@@ -81,10 +81,12 @@ function UploadFile($upfile, $iswatermark='')
 
 
 	//检查文件大小
+	/*
 	if($tempfile_size > $cfg_max_file_size)
 	{
 		return '您上传的文件超过系统设定最大文件上传限制['.GetRealSize($cfg_max_file_size).']！';
 	}
+	*/
 
 
 	//创建文件夹

@@ -212,7 +212,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__soft` WHERE `id`=$id");
 			<td height="40" align="right">缩略图片：</td>
 			<td><div id="picurl_t" ><?php if($row['picurl']!=""){ ?><img src="<?php echo "../".$row['picurl']; ?>" style="height:50px; margin:10px 0px;" ><?php } ?></div>
             <input type="text" name="picurl" id="picurl" class="input" value="<?php echo $row['picurl']; ?>" />
-				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_size; ?>,'picurl')">上 传</span> <span class="rePicTxt">
+				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span> <span class="rePicTxt">
 				<input type="checkbox" name="rempic" id="rempic" value="true" />
 				远程</span> <span class="cutPicTxt"><a href="javascript:;" onclick="GetJcrop('jcrop','picurl');return false;">裁剪</a></span> </span></td>
 		</tr>
@@ -246,7 +246,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__soft` WHERE `id`=$id");
 			<td height="124" align="right">组　图：</td>
 			<td><fieldset class="picarr">
 					<legend>列表</legend>
-					<div>最多可以上传<strong>50</strong>张图片<span onclick="GetUploadify('uploadify2','组图上传','image','image',50,<?php echo $cfg_max_file_size; ?>,'picarr','picarr_area')">开始上传</span></div>
+					<div>最多可以上传<strong>50</strong>张图片<span onclick="GetUploadify('uploadify2','组图上传','image','image',50,<?php echo $cfg_max_file_sizeparr; ?>,'picarr','picarr_area')">开始上传</span></div>
 					<ul id="picarr_area">
 						<?php
 					if($row['picarr'] != '')

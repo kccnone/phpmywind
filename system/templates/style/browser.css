@@ -16,6 +16,7 @@
 		position: relative; display: inline-block;
 		width: 125px; height: 32px; background: #000;
 		cursor: pointer; color: #fff; line-height: 32px; text-align: center; text-decoration: none;
+		transition:all 0.25s ease 0s;
 	}
 	.update_btn:hover{ text-decoration: none;  }
 	.update_btn_1{
