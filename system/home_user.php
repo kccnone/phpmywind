@@ -38,7 +38,7 @@ $(function(){
 		}
 	});
 
-	$("#showad").html('<iframe src="showad.php" width="100%" height="25" scrolling="no" frameborder="0" allowtransparency="true"></iframe>');
+	$("#showad").html('<iframe src="http://help.kccn.net/showad.php" width="100%" height="25" scrolling="no" frameborder="0" allowtransparency="true"></iframe>');
 });
 </script>
 </head>
