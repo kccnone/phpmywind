@@ -932,6 +932,7 @@ CREATE TABLE `#@__soft` (
   `website` varchar(255) NOT NULL COMMENT '官方网站',
   `demourl` varchar(255) NOT NULL COMMENT '演示地址',
   `dlurl` varchar(255) NOT NULL COMMENT '下载地址',
+  `dlname` varchar(255) NOT NULL COMMENT '下载文件名称',
   `source` varchar(50) NOT NULL COMMENT '文章来源',
   `author` varchar(50) NOT NULL COMMENT '作者编辑',
   `linkurl` varchar(255) NOT NULL COMMENT '跳转链接',

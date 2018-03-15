@@ -181,6 +181,10 @@ $row = $dosql->GetOne("SELECT * FROM `#@__soft` WHERE `id`=$id");
 				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','软件上传','soft','soft',1,<?php echo $cfg_max_file_size; ?>,'dlurl')">上 传</span> </span></td>
 		</tr>
 		<tr>
+			<td height="40" align="right">下载文件名称：</td>
+			<td><input type="text" name="dlname" id="dlname" class="input" value="<?php echo $row['dlname']; ?>" /></td>
+		</tr>
+		<tr>
 			<td height="40" align="right">文章来源：</td>
 			<td><input type="text" name="source" id="source" class="input" value="<?php echo $row['source']; ?>" />
 				<span class="srcArea"> <span class="infosrc">选择
