@@ -25,6 +25,23 @@ else
 //统计当前数组数量
 $config_tab_num = count($config_tab_arr);
 
+//敏感词
+$file1 = dirname(__FILE__).'/filter/filter1.txt'; 
+$f1= fopen($file1,"r");  
+if(!$f1){  
+    die("open filter file failed!");  
+}
+$filter = array();  
+while (!feof($f1))  
+{  
+    $line = fgets($f1);//从过滤规则文件中读取一行记录  
+    $patternandreplace = explode('=', $line); //用等号分割，前面的用作模式串，后面的用作替换串  
+    $filter[] = $patternandreplace['0'];
+}  
+fclose($f1);
+$filter = implode(',',$filter);
+$filter = substr($filter,0,-1);
+
 
 //更新配置函数
 function WriteConfig()
@@ -431,6 +448,21 @@ function RewriteURL()
 //更新变量
 if($action == 'update')
 {
+	//更新敏感词
+	$file = dirname(__FILE__).'/filter/filter1.txt';
+	if($_POST['filter']!=''){
+		$filter = explode(",", $_POST['filter']);
+		$arr = array();
+		foreach($filter as $val){
+			$val = $val."=***".PHP_EOL;
+			$arr[] = $val;
+		}
+		$content = implode("", $arr); 
+		file_put_contents($file, $content);
+	}else{
+		file_put_contents($file, '');
+	}
+	
 	foreach($_POST as $k=>$v)
 	{
 		//统计代码转义

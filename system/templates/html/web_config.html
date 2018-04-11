@@ -150,6 +150,13 @@ function DelThisLoginBg(str)
 
 				$i++;
 			}
+			if($config_tab_id==0){
+				echo '<tr class="nb">
+					<td width="25%" height="40" align="right">敏感词：</td>
+					<td width="40%"><textarea name="filter" id="filter" class="textarea" style="margin:7px 0;">'.htmlspecialchars($filter).'</textarea><span class="cnote">多敏感词之间用“,”隔开</span></td>
+					<td width="35%"><a href="../fy_system/filter/filter.txt" download="filter.txt">敏感词词库下载</a></td>
+					</tr>';
+			}
 			?>
 			<tr class="nb">
 				<td width="25%" height="40" align="right">&nbsp;</td>
