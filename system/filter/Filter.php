@@ -3,8 +3,8 @@
  *   文本中的非法字符过滤类  
  */  
 class Filter{  
-    private $pattern;  
-    private $replacement;  
+    private $pattern;
+    private $replacement;
     /** 
      * 构造函数，进行初始化工作，加载替换规则，并构造用于模式查找和模式替换的两个数组 
      */  
@@ -17,9 +17,12 @@ class Filter{
         while (!feof($f))  
         {  
             $line = fgets($f);//从过滤规则文件中读取一行记录  
-            $patternandreplace = explode('=', $line); //用等号分割，前面的用作模式串，后面的用作替换串  
-            $this->pattern[] = '/'.$patternandreplace[0].'/';  
-            $this->replacement[] = trim($patternandreplace[1]);  
+            $patternandreplace = explode('=', $line); //用等号分割，前面的用作模式串，后面的用作替换串
+            if(count($patternandreplace)!=2){
+                continue;
+            }
+            $this->pattern[] = '/'.$patternandreplace[0].'/';
+            $this->replacement[] = trim($patternandreplace[1]);
         }  
         fclose($f);
 
@@ -30,10 +33,13 @@ class Filter{
         }  
         while (!feof($f1))  
         {  
-            $line = fgets($f1);//从过滤规则文件中读取一行记录  
-            $patternandreplace = explode('=', $line); //用等号分割，前面的用作模式串，后面的用作替换串  
-            $this->pattern[] = '/'.$patternandreplace[0].'/';  
-            $this->replacement[] = trim($patternandreplace[1]);  
+            $line1 = fgets($f1);//从过滤规则文件中读取一行记录
+            $patternandreplace1 = explode('=', $line1); //用等号分割，前面的用作模式串，后面的用作替换串
+            if(count($patternandreplace1)!=2){
+                continue;
+            }
+            $this->pattern[] = '/'.$patternandreplace1[0].'/';
+            $this->replacement[] = trim($patternandreplace1[1]);
         }  
         fclose($f1);    
     }  
