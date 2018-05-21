@@ -972,7 +972,7 @@ function GetDiyField($type='',$id=0,$row='')
 			else if($r['fieldtype'] == 'mediumtext')
 			{
 				$reStr .= '<script name="'.$r['fieldname'].'" id="'.$r['fieldname'].'" type="text/plain" style="width:667px; height:218px;">'.$fieldvalue.'</script>';
-				$reStr .= '<script>var ue = UE.getEditor("'.$r['fieldname'].'",{autoHeightEnabled: false});</script>';
+				$reStr .= '<script>var ue = UE.getEditor("'.$r['fieldname'].'");</script>';
 			}
 			
 			$reStr .= '</td></tr></table>';

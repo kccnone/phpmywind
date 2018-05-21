@@ -31,9 +31,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__message` WHERE `id`=$id");
 			<td>
             	<script id="content"  name="content" type="text/plain" style="width:667px; height:218px;"><?php echo $row['content']; ?></script>
                 <script>
-					var ue = UE.getEditor('content',{
-						autoHeightEnabled: false
-					});
+					var ue = UE.getEditor('content');
                 </script>
 			</td>
 		</tr>
@@ -42,9 +40,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__message` WHERE `id`=$id");
 			<td>
             	<script id="recont"  name="recont" type="text/plain" style="width:667px; height:218px;"><?php echo $row['recont']; ?></script>
                 <script>
-					var ue = UE.getEditor('recont',{
-						autoHeightEnabled: false
-					});
+					var ue = UE.getEditor('recont');
                 </script>
 			</td>
 		</tr>

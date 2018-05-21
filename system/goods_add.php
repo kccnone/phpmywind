@@ -191,9 +191,7 @@ function GetAttr(tid)
 			<td>
             	<script id="content"  name="content" type="text/plain" style="width:667px; height:218px;"></script>
                 <script>
-					var ue = UE.getEditor('content',{
-						autoHeightEnabled: false
-					});
+					var ue = UE.getEditor('content');
                 </script>
             </td>
 		</tr>
