@@ -17093,8 +17093,8 @@ UE.plugins['fiximgclick'] = (function () {
                 domUtils.setStyles(resizer, {
                     'width': target.width + 'px',
                     'height': target.height + 'px',
-                    'left': iframePos.x + imgPos.x - me.editor.document.body.scrollLeft - editorPos.x - parseInt(resizer.style.borderLeftWidth) + 'px',
-                    'top': iframePos.y + imgPos.y - me.editor.document.body.scrollTop - editorPos.y - parseInt(resizer.style.borderTopWidth) + 'px'
+                    'left': iframePos.x + imgPos.x - me.editor.document.scrollingElement.scrollLeft - editorPos.x - parseInt(resizer.style.borderLeftWidth) + 'px',
+                    'top': iframePos.y + imgPos.y - me.editor.document.scrollingElement.scrollTop - editorPos.y - parseInt(resizer.style.borderTopWidth) + 'px'
                 });
             }
         }
