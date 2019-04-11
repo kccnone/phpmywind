@@ -19,10 +19,11 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
 		<tr>
 			<td width="25%" height="40" align="right">栏目类型：</td>
-			<td width="380"><select name="infotype" id="infotype">
+			<td width="380">
+                <select name="infotype" id="infotype">
 				<?php
 				if($cfg_adminlevel == 1){
-					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'友情链接','7'=>'预定义一','8'=>'预定义二','9'=>'预定义三','10'=>'预定义四','11'=>'预定义五','12'=>'预定义六','13'=>'预定义七','14'=>'预定义八') as $k=>$v)
+					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四','10'=>'预定义五','11'=>'预定义六','12'=>'预定义七','13'=>'预定义八','14'=>'友情链接') as $k=>$v)
 					{
 						if($infotype == $k)
 							$selected = 'selected="selected"';
@@ -33,7 +34,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 					}				
 				}
 				else{
-					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'友情链接','7'=>'预定义一','8'=>'预定义二','9'=>'预定义三','10'=>'预定义四','11'=>'预定义五','12'=>'预定义六','13'=>'预定义七','14'=>'预定义八') as $k=>$v)
+					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四','10'=>'预定义五','11'=>'预定义六','12'=>'预定义七','13'=>'预定义八','14'=>'友情链接') as $k=>$v)
 					{
 						if($infotype == $k){
 							$selected = 'selected="selected"';
@@ -56,28 +57,37 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 				}
 				?>
 				</select>
-				<span class="maroon">*</span></td>
+				<span class="maroon">*</span>
+            </td>
 			<td><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
 		<tr>
 			<td height="40" align="right">所属栏目：</td>
-			<td><select name="parentid" id="parentid" onchange="GetCatpSize(this.value);">
+			<td>
+                <select name="parentid" id="parentid" onchange="GetCatpSize(this.value);">
 					<option value="0">一级栏目</option>
 					<?php GetAllType('#@__infoclass','#@__infoclass','parentid'); ?>
 				</select>
-				<span class="maroon">*</span></td>
+				<span class="maroon">*</span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="40" align="right">栏目名称：</td>
-			<td><input name="classname" type="text" id="classname" value="<?php echo $row['classname']; ?>"  class="input" />
-				<span class="maroon">*</span></td>
+			<td>
+                <input name="classname" type="text" id="classname" value="<?php echo $row['classname']; ?>"  class="input" />
+				<span class="maroon">*</span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="40" align="right">缩略图片：</td>
-			<td><input name="picurl" type="text" id="picurl" class="input" value="<?php echo $row['picurl']; ?>" />
-				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span></span></td>
+			<td>
+                <input name="picurl" type="text" id="picurl" class="input" value="<?php echo $row['picurl']; ?>" />
+				<span class="cnote">
+                    <span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span>
+                </span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
         <!--
@@ -113,21 +123,27 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
         -->
 		<tr>
 			<td height="40" align="right">排列排序：</td>
-			<td><input type="text" name="orderid" id="orderid" class="inputs" value="<?php echo $row['orderid']; ?>" /></td>
+			<td>
+                <input type="text" name="orderid" id="orderid" class="inputs" value="<?php echo $row['orderid']; ?>" />
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="nb">
 			<td height="40" align="right">隐藏栏目：</td>
-			<td><input type="radio" name="checkinfo" value="true" <?php if($row['checkinfo'] == 'true') echo 'checked="checked"'; ?> />
+			<td>
+                <input type="radio" name="checkinfo" value="true" <?php if($row['checkinfo'] == 'true') echo 'checked="checked"'; ?> />
 				显示&nbsp;
 				<input type="radio" name="checkinfo" value="false" <?php if($row['checkinfo'] == 'false') echo 'checked="checked"'; ?> />
-				隐藏</td>
+				隐藏
+            </td>
 			<td>&nbsp;</td>
 		</tr>
         <?php if($cfg_adminlevel == 1){ ?>
 		<tr>
 			<td height="40" align="right">跳转链接：</td>
-			<td><input name="linkurl" type="text" id="linkurl" class="input" value="<?php echo $row['linkurl']; ?>" /></td>
+			<td>
+                <input name="linkurl" type="text" id="linkurl" class="input" value="<?php echo $row['linkurl']; ?>" />
+            </td>
 			<td>&nbsp;无跳转链接，请留空</td>
 		</tr>
 		<tr>
@@ -137,12 +153,16 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 		</tr>
 		<tr>
 			<td height="40" align="right">关键词：</td>
-			<td><input type="text" name="keywords" id="keywords" class="input" value="<?php echo $row['keywords']; ?>" /></td>
+			<td>
+                <input type="text" name="keywords" id="keywords" class="input" value="<?php echo $row['keywords']; ?>" />
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="118" align="right">栏目描述：</td>
-			<td><textarea name="description" id="description" class="textarea"><?php echo $row['description']; ?></textarea></td>
+			<td>
+                <textarea name="description" id="description" class="textarea"><?php echo $row['description']; ?></textarea>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
         <?php } 

@@ -9,7 +9,10 @@
 <script type="text/javascript" src="templates/js/forms.func.js"></script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">自定义字段</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="topToolbar">
+    <span class="title">自定义字段</span>
+    <a href="javascript:location.reload();" class="reload">刷新</a>
+</div>
 <form name="form" id="form" method="post" action="diyfield_save.php">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
 		<tr align="left" class="head">
@@ -101,7 +104,17 @@
 			<td><?php echo $row['fieldtitle']; ?></td>
 			<td><?php echo $row['fieldtype']; ?></td>
 			<td class="blue"><?php echo $infotype; ?></td>
-			<td class="action endCol"><span><a href="diyfield_save.php?action=check&id=<?php echo $row['id']; ?>&checkinfo=<?php echo $row['checkinfo']; ?>" title="点击进行审核与未审操作"><?php echo $checkinfo; ?></a></span> | <span><a href="diyfield_update.php?id=<?php echo $row['id']; ?>">修改</a></span> | <span class="nb"><a href="diyfield_save.php?action=del&infotype=<?php echo $row['infotype']; ?>&id=<?php echo $row['id']; ?>&fieldname=<?php echo $row['fieldname']; ?>" onclick="return ConfDel(0)">删除</a></span></td>
+			<td class="action endCol">
+                <span>
+                    <a href="diyfield_save.php?action=check&id=<?php echo $row['id']; ?>&checkinfo=<?php echo $row['checkinfo']; ?>" title="点击进行审核与未审操作"><?php echo $checkinfo; ?></a>
+                </span> |
+                <span>
+                    <a href="diyfield_update.php?id=<?php echo $row['id']; ?>">修改</a>
+                </span> |
+                <span class="nb">
+                    <a href="diyfield_save.php?action=del&infotype=<?php echo $row['infotype']; ?>&id=<?php echo $row['id']; ?>&fieldname=<?php echo $row['fieldname']; ?>" onclick="return ConfDel(0)">删除</a>
+                </span>
+            </td>
 		</tr>
 		<?php
 		}
@@ -116,7 +129,9 @@ if($dosql->GetTotalRow() == 0)
 	echo '<div class="dataEmpty">暂时没有相关的记录</div>';
 }
 ?>
-<div class="bottomToolbar"> <a href="diyfield_add.php" class="dataBtn">添加新字段</a> </div>
+<div class="bottomToolbar">
+    <a href="diyfield_add.php" class="dataBtn">添加新字段</a>
+</div>
 <div class="page"> <?php echo $dopage->GetList(); ?> </div>
 <?php
 
@@ -126,7 +141,10 @@ if($cfg_quicktool == 'Y')
 ?>
 <div class="quickToolbar">
 	<div class="qiuckWarp">
-		<div class="quickArea"> <a href="diyfield_add.php" class="dataBtn">添加新字段</a> <span class="pageSmall"><?php echo $dopage->GetListSmall(); ?></span> </div>
+		<div class="quickArea">
+            <a href="diyfield_add.php" class="dataBtn">添加新字段</a>
+            <span class="pageSmall"><?php echo $dopage->GetListSmall(); ?></span>
+        </div>
 		<div class="quickAreaBg"></div>
 	</div>
 </div>

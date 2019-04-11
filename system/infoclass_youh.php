@@ -14,7 +14,10 @@
 <?php
 $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 ?>
-<div class="formHeader"> <span class="title">修改栏目</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
+<div class="formHeader">
+    <span class="title">修改栏目</span>
+    <a href="javascript:location.reload();" class="reload">刷新</a>
+</div>
 <form name="form" id="form" method="post" action="infoclass_save.php" onsubmit="return cfm_infoclass();">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
 		<tr>
@@ -24,17 +27,23 @@ $row = $dosql->GetOne("SELECT * FROM `#@__infoclass` WHERE `id`=$id");
 		</tr>
 		<tr>
 			<td height="40" align="right">SEO标题：</td>
-			<td><input type="text" name="seotitle" id="seotitle" class="input" value="<?php echo $row['seotitle']; ?>" /></td>
+			<td>
+                <input type="text" name="seotitle" id="seotitle" class="input" value="<?php echo $row['seotitle']; ?>" />
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="40" align="right">关键词：</td>
-			<td><input type="text" name="keywords" id="keywords" class="input" value="<?php echo $row['keywords']; ?>" /></td>
+			<td>
+                <input type="text" name="keywords" id="keywords" class="input" value="<?php echo $row['keywords']; ?>" />
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="118" align="right">栏目描述：</td>
-			<td><textarea name="description" id="description" class="textarea"><?php echo $row['description']; ?></textarea></td>
+			<td>
+                <textarea name="description" id="description" class="textarea"><?php echo $row['description']; ?></textarea>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
        

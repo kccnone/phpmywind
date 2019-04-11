@@ -1,5 +1,5 @@
 <?php	require_once(dirname(__FILE__).'/inc/config.inc.php');
-
+error_reporting(0);
 /*
 **************************
 

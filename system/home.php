@@ -74,11 +74,17 @@ $(function(){
 					<td height="33" colspan="2">软件版本号： <span title="<?php echo $cfg_vertime; ?>"><?php echo $cfg_vernum; ?></span></td>
 				</tr>
 				<tr>
-					<td width="50%" height="33">服务器版本： <span title="<?php echo $_SERVER['SERVER_SOFTWARE']; ?>"><?php echo ReStrLen($_SERVER['SERVER_SOFTWARE'],7,''); ?></span></td>
+					<?php if($cfg_adminlevel==1){?>
+                        <td width="50%" height="33">
+                            服务器版本：<span title="<?php echo $_SERVER['SERVER_SOFTWARE']; ?>"><?php echo ReStrLen($_SERVER['SERVER_SOFTWARE'],7,''); ?></span>
+                        </td>
+                    <?php }?>
 					<td width="50%">操作系统： <?php echo PHP_OS; ?></td>
 				</tr>
 				<tr>
-					<td height="33">PHP版本号： <?php echo PHP_VERSION; ?></td>
+					<?php if($cfg_adminlevel==1){?>
+                        <td height="33">PHP版本号： <?php echo PHP_VERSION; ?></td>
+                    <?php }?>
 					<td>GDLibrary： <?php echo ShowResult(function_exists('imageline')); ?></td>
 				</tr>
 				<tr>

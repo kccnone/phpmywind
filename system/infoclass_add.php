@@ -11,18 +11,22 @@
 <script type="text/javascript" src="templates/js/checkf.func.js"></script>
 </head>
 <body>
-<div class="formHeader"> <span class="title">添加栏目</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
+<div class="formHeader">
+    <span class="title">添加栏目</span>
+    <a href="javascript:location.reload();" class="reload">刷新</a>
+</div>
 <form name="form" id="form" method="post" action="infoclass_save.php" onsubmit="return cfm_infoclass();">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
 		<tr>
 			<td width="25%" height="40" align="right">栏目类型：</td>
-			<td width="380"><select name="infotype" id="infotype">
+			<td width="380">
+                <select name="infotype" id="infotype">
 				<?php
 
 				//初始化类型
 				$infotype = isset($infotype) ? $infotype : '';
 				if($cfg_adminlevel == 1){
-					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'友情链接','7'=>'预定义一','8'=>'预定义二','9'=>'预定义三','10'=>'预定义四','11'=>'预定义五','12'=>'预定义六','13'=>'预定义七','14'=>'预定义八') as $k=>$v)
+					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四','10'=>'预定义五','11'=>'预定义六','12'=>'预定义七','13'=>'预定义八','14'=>'友情链接') as $k=>$v)
 					{
 						if($infotype == $k)
 							$selected = 'selected="selected"';
@@ -33,7 +37,7 @@
 					}				
 				}
 				else{
-					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'友情链接','7'=>'预定义一','8'=>'预定义二','9'=>'预定义三','10'=>'预定义四','11'=>'预定义五','12'=>'预定义六','13'=>'预定义七','14'=>'预定义八') as $k=>$v)
+					foreach(array('0'=>'单页','1'=>'列表','2'=>'图片','3'=>'下载','4'=>'产品','5'=>'视频','6'=>'预定义一','7'=>'预定义二','8'=>'预定义三','9'=>'预定义四','10'=>'预定义五','11'=>'预定义六','12'=>'预定义七','13'=>'预定义八','14'=>'友情链接') as $k=>$v)
 					{
 						if($infotype == $k){
 							$selected = 'selected="selected"';
@@ -56,28 +60,37 @@
 				}
 				?>
 				</select>
-				<span class="maroon">*</span></td>
+				<span class="maroon">*</span>
+            </td>
 			<td><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
 		<tr>
 			<td height="40" align="right">所属栏目：</td>
-			<td><select name="parentid" id="parentid" onchange="GetCatpSize(this.value);">
+			<td>
+                <select name="parentid" id="parentid" onchange="GetCatpSize(this.value);">
 					<option value="0">一级栏目</option>
 					<?php GetAllType('#@__infoclass','#@__infoclass','id'); ?>
 				</select>
-				<span class="maroon">*</span></td>
+				<span class="maroon">*</span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="40" align="right">栏目名称：</td>
-			<td><input name="classname" type="text" id="classname" class="input" />
-				<span class="maroon">*</span></td>
+			<td>
+                <input name="classname" type="text" id="classname" class="input" />
+				<span class="maroon">*</span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td height="40" align="right">缩略图片：</td>
-			<td><input name="picurl" type="text" id="picurl" class="input" />
-				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span></span></td>
+			<td>
+                <input name="picurl" type="text" id="picurl" class="input" />
+				<span class="cnote">
+                    <span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,<?php echo $cfg_max_file_sizep; ?>,'picurl')">上 传</span>
+                </span>
+            </td>
 			<td>&nbsp;</td>
 		</tr>
        <!--
@@ -113,15 +126,19 @@
 		</tr>
 		<tr>
 			<td height="40" align="right">排列排序：</td>
-			<td><input type="text" name="orderid" id="orderid" class="inputs" value="<?php echo GetOrderID('#@__infoclass'); ?>" /></td>
+			<td>
+                <input type="text" name="orderid" id="orderid" class="inputs" value="<?php echo GetOrderID('#@__infoclass'); ?>" />
+            </td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr class="nb">
 			<td height="40" align="right">隐藏栏目：</td>
-			<td><input type="radio" name="checkinfo" value="true" checked="checked"  />
+			<td>
+                <input type="radio" name="checkinfo" value="true" checked="checked"  />
 				显示&nbsp;
 				<input type="radio" name="checkinfo" value="false" />
-				隐藏</td>
+				隐藏
+            </td>
 			<td>&nbsp;</td>
 		</tr>      
         <?php if($cfg_adminlevel == 1){ ?>

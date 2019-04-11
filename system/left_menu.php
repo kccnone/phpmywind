@@ -10,7 +10,16 @@
 <script type="text/javascript" src="templates/js/leftmenu.js"></script>
 </head>
 <body>
-<div class="quickBtn"> <span class="quickBtnLeft"><a href="infolist_add.php" target="main">添新闻</a></span> <span class="quickBtnRight"><a href="goods_add.php" target="main">添产品</a></span> </div>
+<div class="quickBtn">
+    <?php if($cfg_adminlevel==1){?>
+    <span class="quickBtnLeft">
+        <a href="infolist_add.php" target="main">添新闻</a>
+    </span>
+    <span class="quickBtnRight">
+        <a href="goods_add.php" target="main">添产品</a>
+    </span>
+    <?php }?>
+</div>
 
 <div class="tGradient"></div>
 <div id="scrollmenu">
@@ -82,7 +91,7 @@
 				<div class="title" onclick="DisplayMenu('leftmenu06');" title="点击切换显示或隐藏"> 帮助与更新 </div>
 				<div id="leftmenu06" style="display:none;"> <a href="sysevent.php" target="main">操作日志</a> <a href="syscount.php" target="main">数据统计</a>
 					<div class="hr_1"> </div>
-					<a href="upload_file.php" target="main">上传新文件</a> <a href="check_bom.php" target="main">BOM检查</a> <a href="http://www.kccn.net/help" target="main">后台使用手册</a> </div>
+					<a href="upload_file.php" target="main">上传新文件</a> <a href="check_bom.php" target="main">BOM检查</a> <a href="http://help.kccn.net" target="main">后台使用手册</a> </div>
 			</div>
 			<!--scrollbar end--> 
 		</div>

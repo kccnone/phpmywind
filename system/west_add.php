@@ -24,7 +24,7 @@
 			<td width="25%" height="40" align="right">栏　目：</td>
 			<td width="75%"><select name="classid" id="classid">
 					<option value="-1">请选择所属栏目</option>
-					<?php CategoryType(12); ?>
+					<?php CategoryType(11); ?>
 				</select>
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
@@ -66,7 +66,7 @@
 			<td colspan="2" height="26"><div class="line"> </div></td>
 		</tr>
 		<tr class="nb">
-			<td colspan="2" height="0" id="df"><?php if(isset($cid)) echo GetDiyField(2,$cid); ?></td>
+			<td colspan="2" height="0" id="df"><?php if(isset($cid)) echo GetDiyField(11,$cid); ?></td>
 		</tr>
 		<tr>
 			<td height="40" align="right">文章来源：</td>

@@ -1,6 +1,7 @@
 <?php	require_once(dirname(__FILE__).'/inc/config.inc.php');IsModelPriv('infolist');
-require_once(dirname(__FILE__).'/filter/Filter.php');
-$filter = new Filter();
+//require_once(dirname(__FILE__).'/filter/Filter.php');
+//$filter = new Filter();
+error_reporting(0);
 /*
 **************************
 
@@ -241,12 +242,12 @@ if($action == 'add')
 	}
 
 	//敏感词替换
-	$title = $filter->clean($title);
-	$author = $filter->clean($author);
-	$picurl = $filter->clean($picurl);
-	$keywords = $filter->clean($keywords);
-	$description = $filter->clean($description);
-	$content = $filter->clean($content);
+//	$title = $filter->clean($title);
+//	$author = $filter->clean($author);
+//	$picurl = $filter->clean($picurl);
+//	$keywords = $filter->clean($keywords);
+//	$description = $filter->clean($description);
+//	$content = $filter->clean($content);
 
 	$sql = "INSERT INTO `$tbname` (siteid, classid, parentid, parentstr, mainid, mainpid, mainpstr, title, colorval, boldval, flag, source, author, linkurl, keywords, description, content, picurl, picarr, orderid, hits, posttime, checkinfo {$fieldname}) VALUES ('$cfg_siteid', '$classid', '$parentid', '$parentstr', '$mainid', '$mainpid', '$mainpstr', '$title', '$colorval', '$boldval', '$flag', '$source', '$author', '$linkurl', '$keywords', '$description', '$content', '$picurl', '$picarr', '$orderid', '$hits', '$posttime', '$checkinfo' {$fieldvalue})";
 	if($dosql->ExecNoneQuery($sql))
@@ -477,12 +478,12 @@ else if($action == 'update')
 	}
 
 	//敏感词替换
-	$title = $filter->clean($title);
-	$author = $filter->clean($author);
-	$picurl = $filter->clean($picurl);
-	$keywords = $filter->clean($keywords);
-	$description = $filter->clean($description);
-	$content = $filter->clean($content);
+//	$title = $filter->clean($title);
+//	$author = $filter->clean($author);
+//	$picurl = $filter->clean($picurl);
+//	$keywords = $filter->clean($keywords);
+//	$description = $filter->clean($description);
+//	$content = $filter->clean($content);
 
 	$sql = "UPDATE `$tbname` SET siteid='$cfg_siteid', classid='$classid', parentid='$parentid', parentstr='$parentstr', mainid='$mainid', mainpid='$mainpid', mainpstr='$mainpstr', title='$title', colorval='$colorval', boldval='$boldval', flag='$flag', source='$source', author='$author', linkurl='$linkurl', keywords='$keywords', description='$description', content='$content', picurl='$picurl', picarr='$picarr', orderid='$orderid', hits='$hits', posttime='$posttime', checkinfo='$checkinfo' {$fieldstr} WHERE id=$id";
 	if($dosql->ExecNoneQuery($sql))

@@ -1,5 +1,5 @@
 <?php	require_once(dirname(__FILE__).'/inc/config.inc.php');IsModelPriv('upload_filemgr_sql');
-
+error_reporting(0);
 /*
 **************************
 

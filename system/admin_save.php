@@ -1,5 +1,5 @@
 <?php	require_once(dirname(__FILE__).'/inc/config.inc.php');IsModelPriv('admin');
-
+error_reporting(0);
 /*
 **************************
 

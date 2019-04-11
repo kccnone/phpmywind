@@ -16,11 +16,22 @@ $(function(){
 </script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">列表信息管理</span>
+<?php $classstr=$dosql->GetOne("SELECT classname FROM `#@__infoclass` WHERE id='$cid'");?>
+<div class="topToolbar">
+    <span class="title"><?php
+        if(empty($classstr))
+        {
+            echo '列表';
+        }
+        else
+        {
+            echo $classstr['classname'];
+        }
+        ?>信息管理</span>
 <span class="alltype">
 	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">查看全部</a>
 	<span class="drop">
-	<?php GetMgrAjaxType('#@__infoclass',9); ?>
+	<?php GetMgrAjaxType('#@__infoclass',8); ?>
 	</span>
 </span>
 

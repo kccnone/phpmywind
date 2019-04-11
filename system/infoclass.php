@@ -9,11 +9,16 @@
 <script type="text/javascript" src="templates/js/forms.func.js"></script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">栏目管理</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="topToolbar">
+    <span class="title">栏目管理</span>
+    <a href="javascript:location.reload();" class="reload">刷新</a>
+</div>
 <form name="form" id="form" method="post" action="">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
 		<tr align="left" class="head">
-			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" onclick="CheckAll(this.checked);" /></td>
+			<td width="5%" height="36" class="firstCol">
+                <input type="checkbox" name="checkid" onclick="CheckAll(this.checked);" />
+            </td>
 			<td width="3%">ID</td>
 			<td width="40%">栏目名称</td>
 			<td width="20%" align="center">排序</td>
@@ -98,41 +103,41 @@
 					$infotype = ' <i title="栏目属于[视频]类型">[视频]</i>';
 					break;
 				case 6:
-					$addurl   = 'winter_add.php?cid='.$row['id'];
-					$infotype = ' <i title="栏目属于[友情链接]类型">[友情链接]</i>';
-					break;					
-				case 7:
 					$addurl   = 'spring_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义一]类型">[预定义一]</i>';
 					break;
-				case 8:
+				case 7:
 					$addurl   = 'summer_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义二]类型">[预定义二]</i>';
 					break;
-				case 9:
+				case 8:
 					$addurl   = 'autumn_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义三]类型">[预定义三]</i>';
 					break;
-				case 10:
+				case 9:
 					$addurl   = 'winter_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义四]类型">[预定义四]</i>';
 					break;
-				case 11:
-					$addurl   = 'vedio_add.php?cid='.$row['id'];
+				case 10:
+					$addurl   = 'east_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义五]类型">[预定义五]</i>';
 					break;
-				case 12:
-					$addurl   = 'spring_add.php?cid='.$row['id'];
+				case 11:
+					$addurl   = 'west_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义六]类型">[预定义六]</i>';
 					break;
-				case 13:
-					$addurl   = 'summer_add.php?cid='.$row['id'];
+				case 12:
+					$addurl   = 'north_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义七]类型">[预定义七]</i>';
 					break;
-				case 14:
-					$addurl   = 'autumn_add.php?cid='.$row['id'];
+				case 13:
+					$addurl   = 'south_add.php?cid='.$row['id'];
 					$infotype = ' <i title="栏目属于[预定义八]类型">[预定义八]</i>';
 					break;
+                case 14:
+                    $addurl   = 'friendship_add.php?cid='.$row['id'];
+                    $infotype = ' <i title="栏目属于[友情链接]类型">[友情链接]</i>';
+                    break;
 				default:
 					$r = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$row['infotype']);
 					if(isset($r) && is_array($r))
@@ -262,14 +267,24 @@
 	<div rel="rowpid_<?php echo GetTopID($row['parentstr']); ?>">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
 			<tr align="left" class="dataTr">
-				<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="<?php echo $row['id']; ?>" /></td>
+				<td width="5%" height="36" class="firstCol">
+                    <input type="checkbox" name="checkid[]" id="checkid[]" value="<?php echo $row['id']; ?>" />
+                </td>
 				<td width="3%"><?php echo $row['id']; ?>
 					<input type="hidden" name="id[]" id="id[]" value="<?php echo $row['id']; ?>" /></td>
 				<td width="40%"><?php echo $classname; ?></td>
-				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=<?php echo $row['id']; ?>&parentid=<?php echo $row['parentid']; ?>&orderid=<?php echo $row['orderid']; ?>" class="leftArrow" title="提升排序"></a>
+				<td width="20%" align="center">
+                    <a href="infoclass_save.php?action=up&id=<?php echo $row['id']; ?>&parentid=<?php echo $row['parentid']; ?>&orderid=<?php echo $row['orderid']; ?>" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="<?php echo $row['orderid']; ?>" />
-					<a href="infoclass_save.php?action=down&id=<?php echo $row['id']; ?>&parentid=<?php echo $row['parentid']; ?>&orderid=<?php echo $row['orderid']; ?>" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><?php echo $addStr; ?></span> | <span><?php echo $checkStr; ?></span> | <span><?php echo $updateStr; ?></span> | <span><?php echo $youhStr; ?></span> | <span class="nb"><?php echo $delStr; ?></span></td>
+					<a href="infoclass_save.php?action=down&id=<?php echo $row['id']; ?>&parentid=<?php echo $row['parentid']; ?>&orderid=<?php echo $row['orderid']; ?>" class="rightArrow" title="下降排序"></a>
+                </td>
+				<td width="32%" class="action endCol">
+                    <span><?php echo $addStr; ?></span> |
+                    <span><?php echo $checkStr; ?></span> |
+                    <span><?php echo $updateStr; ?></span> |
+                    <span><?php echo $youhStr; ?></span> |
+                    <span class="nb"><?php echo $delStr; ?></span>
+                </td>
 			</tr>
 		</table>
 	</div>
@@ -304,9 +319,23 @@
 				$classStr = '<a href="infoclass_add.php" class="dataBtn">添加网站栏目</a>';
 			}
 ?>
-<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:SubUrlParam('infoclass_save.php?action=delallclass');" onclick="return ConfDelAll(1);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('infoclass_save.php');">排序</a> - <a href="javascript:ShowAllRows();">展开</a> - <a href="javascript:HideAllRows();">隐藏</a></span> <?php echo $classStr;  ?> </div>
+<div class="bottomToolbar">
+    <span class="selArea">
+        <span>选择：</span>
+        <a href="javascript:CheckAll(true);">全部</a> -
+        <a href="javascript:CheckAll(false);">无</a> -
+        <a href="javascript:SubUrlParam('infoclass_save.php?action=delallclass');" onclick="return ConfDelAll(1);">删除</a>　
+        <span>操作：</span>
+        <a href="javascript:UpOrderID('infoclass_save.php');">排序</a> -
+        <a href="javascript:ShowAllRows();">展开</a> -
+        <a href="javascript:HideAllRows();">隐藏</a>
+    </span>
+    <?php echo $classStr;  ?>
+</div>
 <div class="page">
-	<div class="pageText">共有<span><?php echo $dosql->GetTableRow('#@__infoclass',$cfg_siteid); ?></span>条记录</div>
+	<div class="pageText">
+        共有<span><?php echo $dosql->GetTableRow('#@__infoclass',$cfg_siteid); ?></span>条记录
+    </div>
 </div>
 
 <?php
@@ -317,9 +346,24 @@ if($cfg_quicktool == 'Y')
 ?>
 <div class="quickToolbar">
 	<div class="qiuckWarp">
-		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:SubUrlParam('infoclass_save.php?action=delallclass');" onclick="return ConfDelAll(1);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('infoclass_save.php');">排序</a> - <a href="javascript:ShowAllRows();">展开</a> - <a href="javascript:HideAllRows();">隐藏</a></span> <?php echo $classStr;  ?><span class="pageSmall">
-			<div class="pageText">共有<span><?php echo $dosql->GetTableRow('#@__infoclass',$cfg_siteid); ?></span>条记录</div>
-			</span></div>
+		<div class="quickArea">
+            <span class="selArea">
+                <span>选择：</span>
+                <a href="javascript:CheckAll(true);">全部</a> -
+                <a href="javascript:CheckAll(false);">无</a> -
+                <a href="javascript:SubUrlParam('infoclass_save.php?action=delallclass');" onclick="return ConfDelAll(1);">删除</a>　
+                <span>操作：</span>
+                <a href="javascript:UpOrderID('infoclass_save.php');">排序</a> -
+                <a href="javascript:ShowAllRows();">展开</a> -
+                <a href="javascript:HideAllRows();">隐藏</a>
+            </span>
+            <?php echo $classStr;  ?>
+            <span class="pageSmall">
+                <div class="pageText">
+                    共有<span><?php echo $dosql->GetTableRow('#@__infoclass',$cfg_siteid); ?></span>条记录
+                </div>
+			</span>
+        </div>
 		<div class="quickAreaBg"></div>
 	</div>
 </div>

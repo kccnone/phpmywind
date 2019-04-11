@@ -27,7 +27,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__spring` WHERE `id`=$id");
 			<td width="25%" height="40" align="right">栏　目：</td>
 			<td width="75%"><select name="classid" id="classid">
 					<option value="-1">请选择所属栏目</option>
-					<?php CategoryType(7); ?>
+					<?php CategoryType(6); ?>
 				</select>
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>

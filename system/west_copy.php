@@ -27,7 +27,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__west` WHERE `id`=$id");
 			<td width="25%" height="40" align="right">栏　目：</td>
 			<td width="75%"><select name="classid" id="classid">
 					<option value="-1">请选择所属栏目</option>
-					<?php CategoryType(12); ?>
+					<?php CategoryType(11); ?>
 				</select>
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
@@ -79,7 +79,7 @@ $row = $dosql->GetOne("SELECT * FROM `#@__west` WHERE `id`=$id");
 		</tr>
 		<tr class="nb">
 			<td colspan="2" height="0" id="df"><?php
-			echo GetDiyField('2',$row['classid'],$row);
+			echo GetDiyField('11',$row['classid'],$row);
 			?></td>
 		</tr>
 		<tr>
