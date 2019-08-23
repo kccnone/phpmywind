@@ -1,4 +1,6 @@
-<?php	require_once(dirname(__FILE__).'/../include/common.inc.php');require_once(dirname(__FILE__).'/inc/manageui.inc.php');
+<?php
+require_once(dirname(__FILE__).'/../include/common.inc.php');
+require_once(dirname(__FILE__).'/inc/manageui.inc.php');
 
 /*
 **************************
@@ -11,13 +13,54 @@ update: 2014-6-1 12:20:58
 
 //初始化参数
 $dopost = isset($dopost) ? $dopost : '';
-
+$private_key='-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAqtcivu827OwO3XQZPpjIxv3sf3ar0wYkjk6k2XeYJVhyUmqR
+8r5tpsiLsUhsXwAEA0hjPLkVGHx6ms9A9TbdPAji3/WygeCb3SwB3dK85thQlNfG
+mOS/dtxaUguWU1bZDHN0xldJEVzQFdzpRtcerTRLyZnYc/SVhUdlhORKDgfu7+Zs
+H2Xwi8gO3LdqABeukeqqOqnmEtxRIzVWNJsV6TR+2exwxlS5D6B7jEOmBUCvGsNi
+7xBaQYgXg8aH87CP4pNdueBvCDAIB5oB6zVgmrVxG909H8pKMZp+4A0AmjXOgTzE
+hnZ5dB2WHUZT1XvC8CugW/T5U2AX9x0am1+5aQIDAQABAoIBAQCMRqHtDRaYayu5
+gn7H+0PAwPbTomlrmHujrceGGMEAySL1sTOtkdcPP1QUeVcimiyxVVrGnWJI/Mzf
+GJZJwobdqJ5BLskoA3l3nY7ayRL6qVthG9uh5xGfU0eGXqVMQN9vbc3QnhMNApyJ
+lx6kYDZ8GZixLHWioI21Je6hs6Fq6plDPiIWmBZyfNlzn3lyySbhIwRRluvxu6kv
+0JHGULTuQKcLy2ySrgvc7O012e+8S6jr4lTwgKgmZvYD4s9p3wp5ChtgLswURGwu
+k7VLGUAlTp2Wwf7RncCn+33ASphQ+ogxcw/X8QpZ0TQC2cwinXi6NL4uBOWQVT7n
+7H8zWYnRAoGBANGDzJwLplLLW/vCrwX6wvUlYHMCEQimsFEyWkej/HkkPqPgUoCL
+PR+2AQsCg7Q8ByBmsQU1pUFRljgNrxj2UfvGzgURR/5eZGJ3JdXMXKkNop6qEZ33
+Q3FIpehEglNXyWyW/P8KC68T+z+Zx3EbuGLhmc/9t3tMHwQHqGui8HXTAoGBANC+
+q+TL5yKLVYGaIg5XLqhwZND+RrVhyKdEZ5R/cYRIoo7uoPVb1Dk4Kms3OWGhDppL
+W4eOWP9d0t9QhiE7ra5s7X749us8ILSGp36n5uDZ8Dtw8OlWBdtC5+M4YPscKT3p
+bzSB1hXZzx1PxAEroFh3PgbHTgy4+UPnB1iFfqJTAoGBAIS0zdodSulwY7/wzXml
+Hu22EgRmz7FCG7YihaqRBS8aNQ8J3FgNWdcHKlv16MQ1rXHpecDJ/PWFnve8Oyc9
+hipK/12YV5iX40+3FmD4g8yUlWeYY3ZCExbjJCsdkcsGdM/yRyeoDkSEDIV5eyl6
+nG0NZqamlxxi19Zun1AmMdb/AoGAFfibux9DGr2zqEqC3yOKA6ygz+aTpq++IOzw
+Qg8P8a57fbPcOTcLJWKmBFbxsTb0hIT+A0yWTXqgoWSmWYUgiMVqUfz+cFAJ2TZ7
+Frexc2U9BeSjVsv5HdTy91WNz6BtLtkNHWe1EuO0Cw/EP6NJ40XZv3jm3Cv0AJOm
+kEisxYUCgYEAlskZRvIESSXWwO+oRMxWk+WBATAvlkBDnryArlS1GHtgfyG+EQfj
+bv8uj/3fDFH2Ku+htrdM5mFVa0qyj5+SAUAHXm/jmb/tQYKvi8lgNNKvydUDFh7Y
+hzg+0H7LRK8P7N0KpChjAWOgmKQ6h+TvFcWhi/Ug7kmDWqXNpECZKLs=
+-----END RSA PRIVATE KEY-----';
 
 //判断登陆请求
 if($dopost == 'login')
 {
 	
 	//初始化参数
+    openssl_private_decrypt(base64_decode($password),$decrypted,$private_key);
+    $encrypt_exist=false;
+    if(!empty($decrypted))
+    {
+        $arr = json_decode($decrypted, true);
+        if(array_key_exists("encrypt",$arr))
+        {
+            if($arr['encrypt']=="yes")
+                $encrypt_exist=true;
+        }
+    }
+    if(!$encrypt_exist)
+        echo 'nok';
+    //继续后续处理
+    $password=$arr['password'];
 	$username = empty($username) ? '' : $username;
 	$password = empty($password) ? '' : md5(md5($password));
 	$question = empty($question) ? 0  : $question;
@@ -232,9 +275,19 @@ function SetSysEvent($m='', $cid='', $a='')
 <link href="templates/style/browser.css" rel="stylesheet" />
 <script src="templates/js/jquery.min.js"></script>
 <script type="text/javascript" src="templates/js/browser.js" ></script>
+    <script type="text/javascript" src="templates/js/jsencrypt.min.js"></script>
 <script>
 function CheckForm()
 {
+    var pubkey='-----BEGIN PUBLIC KEY-----';
+    pubkey +='MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqtcivu827OwO3XQZPpjI';
+    pubkey += 'xv3sf3ar0wYkjk6k2XeYJVhyUmqR8r5tpsiLsUhsXwAEA0hjPLkVGHx6ms9A9Tbd';
+    pubkey += 'PAji3/WygeCb3SwB3dK85thQlNfGmOS/dtxaUguWU1bZDHN0xldJEVzQFdzpRtce';
+    pubkey += 'rTRLyZnYc/SVhUdlhORKDgfu7+ZsH2Xwi8gO3LdqABeukeqqOqnmEtxRIzVWNJsV';
+    pubkey += '6TR+2exwxlS5D6B7jEOmBUCvGsNi7xBaQYgXg8aH87CP4pNdueBvCDAIB5oB6zVg';
+    pubkey += 'mrVxG909H8pKMZp+4A0AmjXOgTzEhnZ5dB2WHUZT1XvC8CugW/T5U2AX9x0am1+5';
+    pubkey += 'aQIDAQAB';
+    pubkey += '-----END PUBLIC KEY-----';
 	if($("#username").val() == "")
 	{
 		alert("请输入用户名！");
@@ -247,6 +300,14 @@ function CheckForm()
 		$("#password").focus();
 		return false;
 	}
+    else
+    {
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey(pubkey);
+        var pwd=$("#password").val();
+        $("#password").val(encrypt.encrypt(JSON.stringify({"encrypt": "yes", "password": pwd})));
+        return true;
+    }
 	if($("#question").val() != 0 && $("#answer").val() == "")
 	{
         alert("请输入问题回答！");
@@ -255,28 +316,36 @@ function CheckForm()
     }
 }
 
-$(function(){
-	$(".loginForm input").keydown(function(){
+$(function()
+{
+
+	$(".loginForm input").keydown(function()
+    {
 		$(this).prev().hide();
-	}).blur(function(){
-		if($(this).val() == ""){
+	}).blur(function()
+    {
+		if($(this).val() == "")
+        {
 			$(this).prev().show();
 		}
 	});
 	
-	$("#username").focus(function(){
+	$("#username").focus(function()
+    {
 		$("#username").attr("class", "uname inputOn"); 
 	}).blur(function(){
 		$("#username").attr("class", "uname input"); 
 	});
 
-	$("#password").focus(function(){
-		$("#password").attr("class", "pwd inputOn"); 
+	$("#password").focus(function()
+    {
+		$("#password").attr("class", "pwd inputOn");
 	}).blur(function(){
-		$("#password").attr("class", "pwd input"); 
+		$("#password").attr("class", "pwd input");
 	});
 
-	$("#question").focus(function(){
+	$("#question").focus(function()
+    {
 		$(".quesArea").attr("class", "quesAreaOn"); 
 	}).blur(function(){
 		$(".quesAreaOn").attr("class", "quesArea"); 
