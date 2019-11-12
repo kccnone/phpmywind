@@ -229,7 +229,10 @@ if(!function_exists('MyDate'))
 		if(empty($format))
 			$format = 'Y-m-d H:i:s';
 
-		return gmdate($format, $timest+$addtime);
+        $t=$timest+$addtime;
+        $t=new DateTime('@'.$t);
+
+        return $t->format($format);
 	}
 }
 
@@ -259,44 +262,9 @@ if(!function_exists('GetMkTime'))
 {
 	function GetMkTime($dtime)
 	{
-		if(!preg_match("/[^0-9]/", $dtime))
-		{
-			return $dtime;
-		}
-		$dtime = trim($dtime);
-		$dt = array(1970, 1, 1, 0, 0, 0);
-		$dtime = preg_replace("/[\r\n\t]|日|秒/", " ", $dtime);
-		$dtime = str_replace("年", "-", $dtime);
-		$dtime = str_replace("月", "-", $dtime);
-		$dtime = str_replace("时", ":", $dtime);
-		$dtime = str_replace("分", ":", $dtime);
-		$dtime = trim(preg_replace("/[ ]{1,}/", " ", $dtime));
-		$ds = explode(" ", $dtime);
-		$ymd = explode("-", $ds[0]);
-		if(!isset($ymd[1])) $ymd = explode(".", $ds[0]);
-		if(isset($ymd[0])) $dt[0] = $ymd[0];
-		if(isset($ymd[1])) $dt[1] = $ymd[1];
-		if(isset($ymd[2])) $dt[2] = $ymd[2];
-		if(strlen($dt[0])==2) $dt[0] = '20'.$dt[0];
-		if(isset($ds[1]))
-		{
-			$hms = explode(":", $ds[1]);
-			if(isset($hms[0])) $dt[3] = $hms[0];
-			if(isset($hms[1])) $dt[4] = $hms[1];
-			if(isset($hms[2])) $dt[5] = $hms[2];
-		}
-		foreach($dt as $k=>$v)
-		{
-			$v = preg_replace("/^0{1,}/", '', trim($v));
-			if($v == '')
-			{
-				$dt[$k] = 0;
-			}
-		}
+        $t=new DateTime($dtime);
 
-		$mt = mktime($dt[3], $dt[4], $dt[5], $dt[1], $dt[2], $dt[0]);
-		if(!empty($mt)) return $mt;
-		else return time();
+        return $t->format('U');
 	}
 }
 
