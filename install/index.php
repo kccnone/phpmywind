@@ -248,9 +248,9 @@ else if($s == 3)
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_upload_img_type','上传图片类型','1','string','gif|png|jpg|bmp','23');
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_upload_soft_type','上传软件类型','1','string','zip|gz|rar|iso|doc|xls|ppt|wps|txt','24');
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_upload_media_type','上传媒体类型','1','string','swf|flv|mpg|mp3|rm|rmvb|wmv|wma|wav','25');
-			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_size','上传图片文件大小（数值的单位是字节b）','1','string','2097152','26');
-			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_sizep','上传软件文件大小（数值的单位是字节b）','1','string','2097152','26');
-			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_sizeparr','上传媒体文件大小（数值的单位是字节b）','1','string','2097152','26');
+			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_size','上传文件大小（数值的单位是字节b）','1','string','2097152','26');
+			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_sizep','上传文件大小（数值的单位是字节b）','1','string','2097152','26');
+			INSERT INTO `#@__webconfig` VALUES('1','cfg_max_file_sizeparr','上传文件大小（数值的单位是字节b）','1','string','2097152','26');
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_imgresize','自动缩略图方式　<br />(是\"裁切\",否\"填充\")','1','bool','Y','27');
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_countcode','流量统计代码','1','bstring','','28');
 			INSERT INTO `#@__webconfig` VALUES('1','cfg_qqcode','在线QQ　<br />(多个用\",\"分隔)','1','bstring','','29');
