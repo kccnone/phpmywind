@@ -15,6 +15,7 @@
 <script type="text/javascript" charset="utf-8" src="editor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="editor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="editor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="templates/js/ddsort.js"></script>
 </head>
 <body>
 <div class="formHeader"> <span class="title">添加图片信息</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
@@ -175,5 +176,19 @@
 		<input type="hidden" name="cid" id="cid" value="<?php echo ($cid = isset($cid) ? $cid : ''); ?>" />
 	</div>
 </form>
+<script>
+    $(function()
+    {
+        // 图片列表拖动
+        $('#picarr_area').DDSort({
+            target: 'li',
+            delay: 100, // 延时处理，默认为 50 ms，防止手抖点击 A 链接无效
+            floatStyle: {
+                'border': '1px solid #ccc',
+                'background-color': '#fff'
+            }
+        });
+    })
+</script>
 </body>
 </html>
