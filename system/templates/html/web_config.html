@@ -319,7 +319,7 @@ require_once($manageui_inc);
 				<?php
 
 				//设置读取目录
-				$dir = ADMIN_TEMP.'/images/loginbg';
+				$dir = ADMIN_TEMP.'/images/loginBg';
 
 				//打开文件夹
 				if(is_dir($dir))
@@ -330,7 +330,7 @@ require_once($manageui_inc);
 					{
 						if($filename != '.' && $filename != '..' && !is_dir($dir.$filename))
 						{
-							$loginBg = 'templates/images/loginbg/'.$filename;
+							$loginBg = 'templates/images/loginBg/'.$filename;
 							echo '<div rel="'.$loginBg.'"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg(\''.$loginBg.'\')"><img src="'.$loginBg.'" width="244" /></a></span><a href="javascript:;" onclick="UserThisLoginBg(\''.$loginBg.'\')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg(\''.$loginBg.'\')">删除</a></div>';
 						}
 					}
