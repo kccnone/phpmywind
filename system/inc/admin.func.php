@@ -1364,6 +1364,21 @@ function IsCategoryPriv($cid=0,$act='',$return='',$issave='1')
 				case 9:
 					$m = 'winter';
 					break;
+                case 10:
+                    $m = 'east';
+                    break;
+                case 11:
+                    $m = 'west';
+                    break;
+                case 12:
+                    $m = 'north';
+                    break;
+                case 13:
+                    $m = 'south';
+                    break;
+                case 14:
+                    $m = 'friendship';
+                    break;
 				default:
 					$r2 = $dosql->GetOne("SELECT * FROM `#@__diymodel` WHERE `id`=".$r['infotype']);
 					if(isset($r2) && is_array($r2))
