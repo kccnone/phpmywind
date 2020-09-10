@@ -1,5 +1,5 @@
 <?php	if(!defined('IN_PHPMYWIND')) exit('Request Error!');
-
+require_once('imgcompress.class.php');
 /*
 **************************
 KCCN
@@ -132,73 +132,99 @@ function UploadFile($upfile, $iswatermark='')
 
 
 	//移动临时文件到指定目录
-	if(@move_uploaded_file($tempfile_tn, $save_dir))
-	{
-		if($cfg_markswitch=='Y' &&
-		   ($iswatermark=='true' or $iswatermark=='checked') &&
-		   in_array($tempfile_ext, array('jpg','png','gif','bmp')))
-		{
-			WaterMark($save_dir, PHPMYWIND_ROOT.'/'.$cfg_markpicurl, $cfg_markminwidth, $cfg_markminheight, $cfg_markwhere,
-			          $cfg_marktext, '黑体', $cfg_marksize, $cfg_markcolor, $cfg_marktype);
-		}
-		if(in_array($tempfile_ext, array('jpg','png','gif'))){
-	        $src = $save_dir;
-	        switch ($tempfile_ext) {
-	        	case 'jpg':
-	        		$src_img = imagecreatefromjpeg($src);
-	        		break;
-	        	case 'png':
-	        		$src_img = imagecreatefrompng($src);
-	        		break;
-	        	case 'gif':
-	        		$src_img = imagecreatefromgif($src);
-	        		break;
-	        	default:
-	        		$src_img = imagecreatefrompng($src_03);
-	        		break;
-	        }
-	        
-	        list($width,$height) = getimagesize($src);
-	        $percent = 0.04;
-	        $newwidth = $width * $percent;
-	        $newheight = $height * $percent;
-	        $dst_img = imagecreatetruecolor($newwidth, $newheight);
-	        imagecopyresized($dst_img, $src_img, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-	        $small_dir = $upload_dir.'/small';
-			if(!file_exists($small_dir))
-			{
-				mkdir($small_dir);
-				
-				$fp = fopen($small_dir.'/index.htm', 'w');
-				fclose($fp);
-			}	
-			$small_dirf = $upload_dir.'/small/'.$filename; 
-	        switch ($tempfile_ext) {
-	        	case 'jpg':
-	        		imagejpeg($dst_img,$small_dirf);	
-	        		break;
-	        	case 'png':
-	        		imagepng($dst_img,$small_dirf);		
-	        		break;
-	        	case 'gif':
-	        		imagegif($dst_img,$small_dirf);	
-	        		break;
-	        	default:
-	        		imagepng($dst_img,$small_dirf);	
-	        		break;
-	        }			       
-	        	
-		}
+    if(in_array($tempfile_ext, array('jpg','png','gif','jpeg','bmp')))
+    {
+        if(@(new imgcompress($tempfile['tmp_name'],1))->compressImg($save_dir))
+        {
+            if($cfg_markswitch=='Y' &&
+                ($iswatermark=='true' or $iswatermark=='checked') &&
+                in_array($tempfile_ext, array('jpg','png','gif','bmp')))
+            {
+                WaterMark($save_dir, PHPMYWIND_ROOT.'/'.$cfg_markpicurl, $cfg_markminwidth, $cfg_markminheight, $cfg_markwhere,
+                    $cfg_marktext, '黑体', $cfg_marksize, $cfg_markcolor, $cfg_marktype);
+            }
+            if(in_array($tempfile_ext, array('jpg','png','gif'))){
+                $src = $save_dir;
+                switch ($tempfile_ext) {
+                    case 'jpg':
+                        $src_img = imagecreatefromjpeg($src);
+                        break;
+                    case 'png':
+                        $src_img = imagecreatefrompng($src);
+                        break;
+                    case 'gif':
+                        $src_img = imagecreatefromgif($src);
+                        break;
+                    default:
+                        $src_img = imagecreatefrompng($src_03);
+                        break;
+                }
 
-		//添加数据库记录
-		$dosql->ExecNoneQuery("INSERT INTO `#@__uploads` (name, path, size, type, posttime) VALUES ('$filename', '$save_url', '$tempfile_size', '$save_type', '".time()."')");
+                list($width,$height) = getimagesize($src);
+                $percent = 0.04;
+                $newwidth = $width * $percent;
+                $newheight = $height * $percent;
+                $dst_img = imagecreatetruecolor($newwidth, $newheight);
+                imagecopyresized($dst_img, $src_img, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+                $small_dir = $upload_dir.'/small';
+                if(!file_exists($small_dir))
+                {
+                    mkdir($small_dir);
 
-		//上传成功，返回数组
-		return array($filename, $tempfile_size, $save_url, $save_dir);
-	}
-	else
-	{
-		return '发生未知错误，上传失败！';
-	}
+                    $fp = fopen($small_dir.'/index.htm', 'w');
+                    fclose($fp);
+                }
+                $small_dirf = $upload_dir.'/small/'.$filename;
+                switch ($tempfile_ext) {
+                    case 'jpg':
+                        imagejpeg($dst_img,$small_dirf);
+                        break;
+                    case 'png':
+                        imagepng($dst_img,$small_dirf);
+                        break;
+                    case 'gif':
+                        imagegif($dst_img,$small_dirf);
+                        break;
+                    default:
+                        imagepng($dst_img,$small_dirf);
+                        break;
+                }
+
+            }
+
+            //添加数据库记录
+            $dosql->ExecNoneQuery("INSERT INTO `#@__uploads` (name, path, size, type, posttime) VALUES ('$filename', '$save_url', '$tempfile_size', '$save_type', '".time()."')");
+
+            //上传成功，返回数组
+            return array($filename, $tempfile_size, $save_url, $save_dir);
+        }
+        else
+        {
+            return '发生未知错误，上传失败！';
+        }
+    }
+    else
+    {
+        if(@move_uploaded_file($tempfile_tn, $save_dir))
+        {
+            if($cfg_markswitch=='Y' &&
+                ($iswatermark=='true' or $iswatermark=='checked') &&
+                in_array($tempfile_ext, array('jpg','png','gif','bmp')))
+            {
+                WaterMark($save_dir, PHPMYWIND_ROOT.'/'.$cfg_markpicurl, $cfg_markminwidth, $cfg_markminheight, $cfg_markwhere,
+                    $cfg_marktext, '黑体', $cfg_marksize, $cfg_markcolor, $cfg_marktype);
+            }
+
+            //添加数据库记录
+            $dosql->ExecNoneQuery("INSERT INTO `#@__uploads` (name, path, size, type, posttime) VALUES ('$filename', '$save_url', '$tempfile_size', '$save_type', '".time()."')");
+
+            //上传成功，返回数组
+            return array($filename, $tempfile_size, $save_url, $save_dir);
+        }
+        else
+        {
+            return '发生未知错误，上传失败！';
+        }
+    }
 }
 ?>
