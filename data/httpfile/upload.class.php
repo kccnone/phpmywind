@@ -132,7 +132,7 @@ function UploadFile($upfile, $iswatermark='')
 
 
 	//移动临时文件到指定目录
-    if(in_array($tempfile_ext, array('jpg','png','gif','jpeg','bmp')))
+    if(in_array($tempfile_ext, array('jpg','gif','jpeg','bmp')))
     {
         if(@(new imgcompress($tempfile['tmp_name'],1))->compressImg($save_dir))
         {
