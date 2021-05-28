@@ -13,7 +13,7 @@ update: 2014-6-1 12:20:58
 
 //初始化参数
 $dopost = isset($dopost) ? $dopost : '';
-$private_key='-----BEGIN RSA PRIVATE KEY-----
+$private_key = '-----BEGIN RSA PRIVATE KEY-----
 MIIEpQIBAAKCAQEAqtcivu827OwO3XQZPpjIxv3sf3ar0wYkjk6k2XeYJVhyUmqR
 8r5tpsiLsUhsXwAEA0hjPLkVGHx6ms9A9TbdPAji3/WygeCb3SwB3dK85thQlNfG
 mOS/dtxaUguWU1bZDHN0xldJEVzQFdzpRtcerTRLyZnYc/SVhUdlhORKDgfu7+Zs
@@ -47,20 +47,20 @@ if($dopost == 'login')
 	
 	//初始化参数
     openssl_private_decrypt(base64_decode($password),$decrypted,$private_key);
-    $encrypt_exist=false;
+    $encrypt_exist = false;
     if(!empty($decrypted))
     {
         $arr = json_decode($decrypted, true);
         if(array_key_exists("encrypt",$arr))
         {
-            if($arr['encrypt']=="yes")
-                $encrypt_exist=true;
+            if($arr['encrypt'] == "yes")
+                $encrypt_exist = true;
         }
     }
     if(!$encrypt_exist)
         echo 'nok';
     //继续后续处理
-    $password=$arr['password'];
+    $password = $arr['password'];
 	$username = empty($username) ? '' : $username;
 	$password = empty($password) ? '' : md5(md5($password));
 	$question = empty($question) ? 0  : $question;
@@ -279,8 +279,8 @@ function SetSysEvent($m='', $cid='', $a='')
 <script>
 function CheckForm()
 {
-    var pubkey='-----BEGIN PUBLIC KEY-----';
-    pubkey +='MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqtcivu827OwO3XQZPpjI';
+    var pubkey = '-----BEGIN PUBLIC KEY-----';
+    pubkey += 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqtcivu827OwO3XQZPpjI';
     pubkey += 'xv3sf3ar0wYkjk6k2XeYJVhyUmqR8r5tpsiLsUhsXwAEA0hjPLkVGHx6ms9A9Tbd';
     pubkey += 'PAji3/WygeCb3SwB3dK85thQlNfGmOS/dtxaUguWU1bZDHN0xldJEVzQFdzpRtce';
     pubkey += 'rTRLyZnYc/SVhUdlhORKDgfu7+ZsH2Xwi8gO3LdqABeukeqqOqnmEtxRIzVWNJsV';
@@ -294,18 +294,19 @@ function CheckForm()
 		$("#username").focus();
 		return false;
 	}
-	if($("#password").val() == "")
+	if($("#pwd").val() == "")
 	{
 		alert("请输入密码！");
-		$("#password").focus();
+		$("#pwd").focus();
 		return false;
 	}
     else
     {
         var encrypt = new JSEncrypt();
         encrypt.setPublicKey(pubkey);
-        var pwd=$("#password").val();
+        var pwd = $("#pwd").val();
         $("#password").val(encrypt.encrypt(JSON.stringify({"encrypt": "yes", "password": pwd})));
+        $("#pwd").val('******');
         return true;
     }
 	if($("#question").val() != 0 && $("#answer").val() == "")
@@ -337,11 +338,11 @@ $(function()
 		$("#username").attr("class", "uname input"); 
 	});
 
-	$("#password").focus(function()
+	$("#pwd").focus(function()
     {
-		$("#password").attr("class", "pwd inputOn");
+		$("#pwd").attr("class", "pwd inputOn");
 	}).blur(function(){
-		$("#password").attr("class", "pwd input");
+		$("#pwd").attr("class", "pwd input");
 	});
 
 	$("#question").focus(function()
@@ -377,7 +378,8 @@ $(function()
 				</div>
 				<div class="txtLine mar8">
 					<label>密码</label>
-					<input type="password" name="password" id="password" class="pwd input" maxlength="16" />
+					<input type="password" name="pwd" id="pwd" class="pwd input" maxlength="16" />
+					<input type="hidden" name="password" id="password" class="pwd input" />
 				</div>
 				<div class="quesArea">
 					<select name="question" id="question" class="question">
